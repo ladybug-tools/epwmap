@@ -43,7 +43,7 @@ var width = 1280,
 
 var projection = d3.geo.mercator()
     .center([-25, 15])
-    .scale(150)
+    .scale(300)
     .rotate([-5,0]);
 
 var svg = d3.select('#wrapper').append("svg")
@@ -95,11 +95,12 @@ var circle_colors = {
 					};
 					
 // load and display the World
-d3.json("./json/world-110m2.json", function(error, topology) {
+//"https://dl.dropboxusercontent.com/u/16228160/
+d3.json("https://dl.dropboxusercontent.com/u/16228160/world-110m2.json", function(error, topology) {
 
 // load and display the cities
-d3.csv("./data/epw_weather_data.csv", function(error, data) {
-         
+d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(error, data) {
+    
     g.selectAll("text")
        .data(data)
        .enter()
@@ -110,20 +111,18 @@ d3.csv("./data/epw_weather_data.csv", function(error, data) {
        .attr("y", function(d) {
                return projection([d.lon, d.lat])[1];
        })
-       .attr("dy", -.8) // set y position of bottom of text
+       .attr("dy", -1.2) // set y position of bottom of text
       .style("fill", "black") // fill the text with the colour black
 	  .style("font-size", "1px")
       .attr("text-anchor", "middle") // set anchor y justification
       .text(function(d) {return d.station_name;}); // define the text to display
-	 
-	// add circles on top of text
+
+	  	// add circles
 	g.selectAll("circle")
        .data(data)
        .enter()
-     .append("a")
-				  .attr("xlink:href", function(d) {
-					  return d.http_link;}
-				  )
+       .append("a")
+		.attr("xlink:href", function(d){return d.http_link;})
      .append("circle")
        .attr("cx", function(d) {
                return projection([d.lon, d.lat])[0];
@@ -131,20 +130,22 @@ d3.csv("./data/epw_weather_data.csv", function(error, data) {
        .attr("cy", function(d) {
                return projection([d.lon, d.lat])[1];
        })
+	   .on("click", function(d){ window.open(d.http_link); }) // this is duplication with "xlink"!
        .attr("r", .6)
        .style("stroke", function(d) { return circle_colors[d.data_source];})
 	   .style("fill", "white")
 	   .style("stroke-width", .3);
-
 });
 
-g.selectAll("path")
-      .data(topojson.object(topology, topology.objects.countries)
-          .geometries)
-    .enter()
-      .append("path")
-      .attr("d", path)
+	// add countries
+	g.selectAll("path")
+		  .data(topojson.object(topology, topology.objects.countries)
+			  .geometries)
+		.enter()
+		  .append("path")
+		  .attr("d", path)
 });
+
 
 // zoom and pan
 var zoom = d3.behavior.zoom()
@@ -163,16 +164,13 @@ svg.call(zoom)
 </script>
 </div>
 <div id="description" class="description" style="width:100%;height:300px">
-<br>
-Zoom and pan to see available weather data stations. You can download the files by clicking on the circles.
-<br>
-Weather data are hosted by <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" rel="link">Department of Energy</a>
-<br>
-Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug</a>
-<br>
-Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a>
-<br>
-This page in using <a href="https://github.com/mbostock/D3" rel="link">D3</a> library. Check more examples <a href="http://d3js.org/" rel="link">here</a>
+<br><br>
+Zoom and pan to see available weather data stations. You can download the files by clicking on the circles. 
+Files are hosted by <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" rel="link">Department of Energy</a>.
+<br><br>
+Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug</a> || 
+Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||  
+This page in using <a href="https://github.com/mbostock/D3" rel="link">D3</a> library. Click <a href="http://d3js.org/" rel="link">here</a> for more examples.
 </div>
 
 </body>
