@@ -10,4 +10,4 @@ Weather data are hosted by Department of Energy > http://apps1.eere.energy.gov/b
 
 Weather data information is parsed by Ladybug https://github.com/mostaphaRoudsari/ladybug
 
-This page in using D3 library href="https://github.com/mbostock/D3 Check this link for mroe examples: http://d3js.org/
+This page is using D3 library href="https://github.com/mbostock/D3 Check this link for mroe examples: http://d3js.org/

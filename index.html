@@ -95,11 +95,12 @@ var circle_colors = {
 					};
 					
 // load and display the World
-//"https://dl.dropboxusercontent.com/u/16228160/
-d3.json("https://dl.dropboxusercontent.com/u/16228160/world-110m2.json", function(error, topology) {
+d3.json("./json/world-110m2.json", function(error, topology) {
+//d3.json("https://dl.dropboxusercontent.com/u/16228160/world-110m2.json", function(error, topology) {
 
 // load and display the cities
-d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(error, data) {
+d3.csv("./data/epw_weather_data.csv", function(error, data) {
+// d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(error, data) {
     
     g.selectAll("text")
        .data(data)
@@ -134,6 +135,7 @@ d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", func
        .attr("r", .6)
        .style("stroke", function(d) { return circle_colors[d.data_source];})
 	   .style("fill", "white")
+	   .style("opacity", .8)
 	   .style("stroke-width", .3);
 });
 
@@ -170,7 +172,7 @@ Files are hosted by <a href="http://apps1.eere.energy.gov/buildings/energyplus/w
 <br><br>
 Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug</a> || 
 Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||  
-This page in using <a href="https://github.com/mbostock/D3" rel="link">D3</a> library. Click <a href="http://d3js.org/" rel="link">here</a> for more examples.
+This page is using <a href="https://github.com/mbostock/D3" rel="link">D3</a> library. Click <a href="http://d3js.org/" rel="link">here</a> for more examples.
 </div>
 
 </body>
