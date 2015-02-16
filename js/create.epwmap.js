@@ -2,18 +2,19 @@
 // Modified from example file by @mbostock (https://github.com/mbostock)
 // Check this link for original example: http://bl.ocks.org/d3noob/5193723
 
-var width = 1240,
-    height = 480;
+var width = window.innerWidth,
+    height = window.innerHeight;
 
 var projection = d3.geo.mercator()
-    .center([-25, 15])
-    .scale(300)
-    .rotate([-5,0]);
+    .center([10, 65])
+    .scale(200)
+    .rotate([-5,0])
+    .translate([.5* width, .09 * height]);
 
 var svg = d3.select('#wrapper')
 	.append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", .7 * height);
 
 var path = d3.geo.path()
     .projection(projection);
@@ -65,7 +66,7 @@ var circle_colors = {
 					
 // load and display the World
 d3.json("./json/world-110m2.json", function(error, topology) {
-// d3.json("https://dl.dropboxusercontent.com/u/16228160/world-110m2.json", function(error, topology) {
+//d3.json("https://dl.dropboxusercontent.com/u/16228160/world-110m2.json", function(error, topology) {
 
 // load and display the cities
 d3.csv("./data/epw_weather_data.csv", function(error, data) {
@@ -84,12 +85,8 @@ d3.csv("./data/epw_weather_data.csv", function(error, data) {
        .data(data)
        .enter()
 			.append("text") // append text
-			.attr("x", function(d) {
-					   return projection([d.lon, d.lat])[0];
-				})
-			.attr("y", function(d) {
-					   return projection([d.lon, d.lat])[1];
-				})
+			.attr("x", function(d) {return projection([d.lon, d.lat])[0];})
+			.attr("y", function(d) {return projection([d.lon, d.lat])[1];})
 			.attr("dy", -(circle_radius + circle_stroke)) // set y position of bottom of text
 			.style("fill", "black") // fill the text with the colour black
 			.style("font-size", font_size)
@@ -104,19 +101,13 @@ d3.csv("./data/epw_weather_data.csv", function(error, data) {
 			.append("a")
 			.attr("xlink:href", function(d){return d.http_link;})
 			.append("g:circle")
-			//.append("circle")
-			.attr("cx", function(d) {
-						return projection([d.lon, d.lat])[0];
-				})
-			.attr("cy", function(d) {
-						return projection([d.lon, d.lat])[1];
-				})
-	   //.on("click", function(d){ window.open(d.http_link); }) // this is duplication with "xlink"!
-       .attr("r", circle_radius)
-       .style("stroke", function(d) { return circle_colors[d.data_source];})
-	   .style("fill", "white")
-	   .style("opacity", .8)
-	   .style("stroke-width", circle_stroke);
+			.attr("cx", function(d) {return projection([d.lon, d.lat])[0];})
+			.attr("cy", function(d) {return projection([d.lon, d.lat])[1];})
+       		.attr("r", circle_radius)
+       		//.style("stroke", function(d) { return circle_colors[d.data_source];})
+	   		.style("fill", function(d) { return circle_colors[d.data_source];})
+	   		.style("opacity", .5)
+	   		.style("stroke-width", circle_stroke);
 		
 		//tooltip
 		$('g circle').tipsy({ 
