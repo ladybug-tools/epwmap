@@ -88,6 +88,56 @@
 		left:0;
 		font: normal 11px Arial;
 	}
+
+	/*
+	search bar - from this link:
+	https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
+	*/
+	.controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+    #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+        margin-left: -1px;
+        padding-left: 14px;  /* Regular padding-left + 1. */
+        width: 401px;
+      }
+
+    .pac-container {
+        font-family: Roboto;
+      }
+
+    #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+    #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
 </style>
 
 <head>
@@ -116,7 +166,10 @@
 </div>
 
 <div id="wrapper">
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
 	<div id="content" class = "map">
+
 		<!--
 		<script type="text/javascript" src = "./js/create.epwmap.js"></script> 
 		-->
@@ -165,7 +218,7 @@
 
 	// Create the Google Map…
 	var opt = { minZoom: 2,
-		maxZoom: 9,
+		maxZoom: 11,
 		streetViewControl: false};
 
 	var grayScaleStyle = [
@@ -181,6 +234,7 @@
 	var map = new google.maps.Map(d3.select(".map").node(), {
 	  zoom: 2,
 	  center: new google.maps.LatLng(5, 0),
+	  panControl: true,
 	  mapTypeId: google.maps.MapTypeId.TERRAIN
 	});
   	
@@ -277,25 +331,62 @@
 		      		.style("opacity", 1.2 - zoomScale);
 		      }
 
-	     	// Create the search box and link it to the UI element.
-		  	//var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
-		  	
-		  	//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-		  	
-		  	//var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
-
-		  	// Listen for the event fired when the user selects an item from the
-		  	// pick list. Retrieve the matching places for that item.
-		  	//google.maps.event.addListener(searchBox, 'places_changed', function() {
-		    //	var places = searchBox.getPlaces();
-			//});
-
+		  	}
 	  	}
-	  	}
-
 
 	  	// Bind our overlay to the map…
 	  	overlay.setMap(map);
+
+
+     	// Create the search box and link it to the UI element.
+     	// Modified from https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
+     	var markers = [];
+	  	var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
+	  	
+	  	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+	  	
+	  	var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
+
+	  	// Listen for the event fired when the user selects an item from the
+	  	// pick list. Retrieve the matching places for that item.
+	  	google.maps.event.addListener(searchBox, 'places_changed', function() {
+	    	
+	    	var places = searchBox.getPlaces();
+	    	
+	    	if (places.length == 0) {return;}
+
+		    for (var i = 0, marker; marker = markers[i]; i++) {
+		      marker.setMap(null);
+		    }
+
+		    // For each place, get the icon, place name, and location.
+		    markers = [];
+		    var bounds = new google.maps.LatLngBounds();
+		    for (var i = 0, place; place = places[i]; i++) {
+		      var image = {
+		        url: place.icon,
+		        size: new google.maps.Size(71, 71),
+		        origin: new google.maps.Point(0, 0),
+		        anchor: new google.maps.Point(17, 34),
+		        scaledSize: new google.maps.Size(25, 25)
+		      };
+
+		      // Create a marker for each place.
+		      var marker = new google.maps.Marker({
+		        map: map,
+		        icon: image,
+		        title: place.name,
+		        position: place.geometry.location
+		      });
+
+		      markers.push(marker);
+
+		      bounds.extend(place.geometry.location);
+		    }
+
+		    map.fitBounds(bounds);
+		});
+
 	});
 
 
@@ -310,6 +401,7 @@
 </div>
 
 <script>
+
   // google analytic
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -318,6 +410,7 @@
 
   ga('create', 'UA-57902264-1', 'auto');
   ga('send', 'pageview');
+
 </script>
 
 </body>
