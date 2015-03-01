@@ -1,42 +1,101 @@
 <!DOCTYPE html>
 
-<!--
-Modified from example file by @mbostock (https://github.com/mbostock)
-Check this link for original example: http://bl.ocks.org/d3noob/5193723
--->
-
+<html>
 <meta charset="utf-8">
 <style>
-path 	{
+	path {
 		  stroke: grey;
 		  stroke-width: 0.5px;
 		  fill: white;
 		}
 
-header 	{
-		font-family: "PT Sans", sans-serif;
-		font-size: 12px;
-		}
+	html,
+	body {
+		margin:0;
+		padding:0;
+		height:95%;
+		background-color: white;
+		color: black;
+		font-family: sans-serif;
+    	font-weight: normal;
+	}
 
-footer {
-		font-family: "PT Sans", sans-serif;
-		font-size: 12px;
-		}
+
+	.stations, .stations svg {
+	  position: absolute;
+	}
+
+	.stations svg {
+	  width: 20px;
+	  height: 20px;
+	  font-family: sans-serif;
+	  font-size: 10px;
+	  pointer-events: visibleFill;
+	}
+
+	.station circle{
+		z-index: 0;
+		pointer-events: visibleFill;
+		cursor: pointer;
+		stroke: black;
+	}
+
+	.heading{
+    	font-size: 13px;
+    	font-weight: normal;
+	}
+
+	a:link {
+			    color: grey;
+			}
+
+	/* visited link */
+	a:visited {
+	    color: grey;
+	}
+
+	/* mouse over link */
+	a:hover {
+	    color: black;
+	}
+
 	
-body 	{
-		font-family: "PT Sans", sans-serif;
-		font-size: 13px;
-		}
+	#wrapper {
+		min-height:90%;
+		position:relative;
+	}
+
+	.map{
+		width: 100%;
+  		height: 100%;
+  		margin: 0;
+  		padding: 0;
+  	}
+	
+	#content {
+		/* padding-bottom:.2em;   /* Height of the footer element */
+		font-family : Courier New;
+		font-size: 3em;
+		position: absolute; /* Center Vertically */
+		height:100%;
+	}
+	
+	#footer {
+		width:100%;
+		height:1em; /* Height of the footer element */
+		position:absolute;
+		bottom:0; 
+		left:0;
+		font: normal 11px Arial;
+	}
 </style>
 
-<header>
-  <title>epwmap</title>
-  Started by <a href="https://github.com/mostaphaRoudsari" rel="author">Mostapha Roudsari</a> at Dec, 21, 2014
-  - Inspired by <a href="https://github.com/mbostock" rel="author">Mike Bostock</a> 's
-  <a href="http://bl.ocks.org/d3noob/5193723" rel="link">example</a>
-</header>
+<head>
+	
+	<title>epwmap</title>
+	
+</head>
 
-<h1>EnergyPlus Weather Data Map</h1>
 
 <body>
 
@@ -45,27 +104,209 @@ body 	{
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script> 
 <script src="./js/jquery.tipsy.js"></script>
 <link rel="stylesheet" href="./css/tipsy.css" type="text/css"/>
+<script src="https://maps.googleapis.com/maps/api/js?1.29.1&sensor=false&libraries=places&types=(cities)"></script>
 
-<div id="wrapper" class="map" style="width:100%; height:80%">
 
-<script type="text/javascript" src = "./js/create.epwmap.js"></script> 
-
+<div id="header">
+	<a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank"><img src="./image/ladybug_honeybee_icon.png" style="height: 60px; vertical-align:middle; float:left; padding:2px;"></a>
+	
+	<h3><br>epwmap<span class="heading"> is developed as part of <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank">Ladybug + Honeybee</a> development. The goal of epwmap is to provide a single interface for all the available free .epw weather files. Currently it only shows the weather files from <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" target="_blank">DOE website</a> and other resources will be added soon. <b>Hover on circles to see more information about each station and click to download the files.</b>
+	</span>
+	</h3>
 </div>
-<div id="description" class="description" style="width:100%">
-<br><br>
-<b>
-Zoom and pan to see available weather data stations. Hover on the circle to see more information and click to download the files.
-Weather files are hosted by <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" rel="link">US Department of Energy</a>.
-</b>
-<br><br>
-Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug</a> || 
-Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||  
-This page is using <a href="https://github.com/mbostock/D3" rel="link">D3</a> library. Click <a href="http://d3js.org/" rel="link">here</a> for more D3 examples.
-<br>
-This is a work in Progress... Check <a href="https://github.com/mostaphaRoudsari/epwmap/issues?q=is%3Aopen+is%3Aissue" rel="link">open issues</a> on Github to help or add new issues or get in touch >
- <a style="margin-left:10px;" href ="https://www.linkedin.com/in/mostaphasadeghipour" target="blank"> Linkedin </a>
- <a style="margin-left:10px;" href ="https://twitter.com/__Mostapha__" target="blank"> Twitter </a>
- <a style="margin-left:10px;" href ="https://github.com/mostapharoudsari" target="blank"> Github </a>
+
+<div id="wrapper">
+	<div id="content" class = "map">
+		<!--
+		<script type="text/javascript" src = "./js/create.epwmap.js"></script> 
+		-->
+	</div>
+	<script type="text/javascript">
+	// circle colors based on data source
+	
+	// Color20b
+	var circle_colors = {
+					"CSWD" : "#393b79",
+					"CWEC" : "#5254a3",
+					"CZ01RV2" : "#ce6dbd",
+					"CZ02RV2" : "#ce6dbd",
+					"CZ03RV2" : "#ce6dbd",
+					"CZ04RV2" : "#ce6dbd",
+					"CZ05RV2" : "#ce6dbd",
+					"CZ06RV2" : "#ce6dbd",
+					"CZ07RV2" : "#ce6dbd",
+					"CZ08RV2" : "#ce6dbd",
+					"CZ09RV2" : "#ce6dbd",
+					"CZ10RV2" : "#ce6dbd",
+					"CZ11RV2" : "#ce6dbd",
+					"CZ12RV2" : "#ce6dbd",
+					"CZ13RV2" : "#ce6dbd",
+					"CZ14RV2" : "#ce6dbd",
+					"CZ15RV2" : "#ce6dbd",
+					"CZ16RV2" : "#ce6dbd",
+					"CityUHK" : "#ce6dbd",
+					"ETMY" : "#17becf",
+					"IGDG" : "#17becf",
+					"IMGW" : "#17becf",
+					"INETI" : "#17becf",
+					"ISHRAE" : "#17becf",
+					"ITMY" : "#17becf",
+					"IWEC" : "brown",
+					"KISR" : "#17becf",
+					"MSI" : "#17becf",
+					"NIWA" : "#17becf",
+					"RMY" : "#17becf",
+					"SWEC" : "#17becf",
+					"SWERA" : "red",
+					"TMY3" : "#3182bd",
+					"TMY2" : "#e6550d",
+					"TMY" : "#31a354"
+					};
+
+	// Create the Google Map…
+	var opt = { minZoom: 2,
+		maxZoom: 9,
+		streetViewControl: false};
+
+	var grayScaleStyle = [
+	    {
+	      	stylers: [{ saturation: -90 }]
+	    },
+	    {
+	    	featureType: "water",
+	    	stylers: [{color: "#ffffff"}]
+		 }
+	];
+
+	var map = new google.maps.Map(d3.select(".map").node(), {
+	  zoom: 2,
+	  center: new google.maps.LatLng(5, 0),
+	  mapTypeId: google.maps.MapTypeId.TERRAIN
+	});
+  	
+  	map.setOptions(opt); //limit zooming
+	map.setOptions({styles: grayScaleStyle}); //grayscale
+  	
+  	var zoomRange = (map.maxZoom - map.minZoom); //use this to set the opacity of circles
+
+  	// Load the station data. When the data comes back, create an overlay.
+	d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(data) {
+		
+	  var zoomScale = (map.maxZoom - map.zoom)/zoomRange;
+	  var overlay = new google.maps.OverlayView();
+
+	  // Add the container when the overlay is added to the map.
+	  overlay.onAdd = function() {
+
+	    var layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
+	        .attr("class", "stations");
+
+	    // set this as locally scoped var so event does not get confused
+		var div = d3.select("div.stations");
+		var me = this;
+
+		// Add a listener - we'll accept clicks anywhere on this div, but you may want
+		// to validate the click i.e. verify it occurred in some portion of your overlay.
+		google.maps.event.addDomListener(div, 'mouseover', function() {
+		    google.maps.event.trigger(me, 'mouseover');
+		});
+
+	    // Draw each marker as a separate SVG element.
+	    overlay.draw = function() {
+		      var projection = this.getProjection(),
+		          padding = 10;
+
+		      var marker = layer.selectAll("svg")
+		          .data(data)
+		          .each(transform) // update existing markers
+		        .enter().append("svg:svg")
+		          .each(transform)
+		          .attr("class", "marker");
+
+		      // Add a circle.
+		      marker.append("svg:circle")
+		        .attr("r", 4.5)
+	          	.attr("cx", padding)
+	          	.attr("cy", padding)
+	          	.attr("stroke", "black")
+	          	.attr("stroke-width", 0)
+	          	.style("opacity", 0.1)
+	          	.style("fill", function(d) { return circle_colors[d.data_source];})
+	          	.on("mouseover", function(d){
+	          		d3.select(this)
+	          			.style("stroke-width", ".3em")
+						.style("cursor", "pointer")})
+	          	.on("mouseout", function(d){d3.select(this).style("stroke-width", "");})
+	          	.on("click", function(d){window.location = d.http_link;});
+		      
+			
+				//tooltip
+				$('svg circle').tipsy({ 
+					gravity: 'nw', 
+					html: true, 
+					title: function(d) {
+					  var d = this.__data__;
+					  return '<span style="font size:18px"> Station Name: ' + d.station_name + '<br> Data Source: ' + d.data_source + '<br><span>' +
+					 '<span> Latitude: ' + d.lat + '<br> Longitude: ' + d.lon + '<br><br><span>' +
+					 '<span> #Hours of Strong Cold Stress: ' + d.strong_cold_stress + '<br> #Hours of Moderate Cold Stress: ' + d.moderate_cold_stress + '<br><span>' +
+					 '<span> #Hours of Slight Cold Stress: ' + d.slight_cold_stress + '<br> #Hours of Comfort: ' + d.no_thermal_stress + '<br><span>' +
+					 '<span> #Hours of Slight Heat Stress: ' + d.slight_heat_stress + '<br> #Hours of Moderate Heat Stress: ' + d.moderate_heat_stress + '<br><span>' +
+					 '<span> #Hours of Strong Heat Stress: ' + d.strong_heat_stress + '<br><span>'; 
+					}
+				});
+
+		      updateOpacity();
+
+		      
+		      function transform(d) {
+		        d = new google.maps.LatLng(d.lat, d.lon);
+		        d = projection.fromLatLngToDivPixel(d);
+		        return d3.select(this)
+		            .style("left",(d.x - padding) + "px")
+		            .style("top", (d.y - padding) + "px");
+		      }
+
+		      function updateOpacity(){
+		      	
+		      	var zoomScale = (map.maxZoom - map.zoom)/zoomRange;
+		      	var raduis =  8 - 4.5 * zoomScale;
+
+				d3.selectAll(".stations circle")
+		      		.transition()
+		      		.attr("r", raduis)
+		      		.style("opacity", 1.2 - zoomScale);
+		      }
+
+	     	// Create the search box and link it to the UI element.
+		  	//var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
+		  	
+		  	//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+		  	
+		  	//var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
+
+		  	// Listen for the event fired when the user selects an item from the
+		  	// pick list. Retrieve the matching places for that item.
+		  	//google.maps.event.addListener(searchBox, 'places_changed', function() {
+		    //	var places = searchBox.getPlaces();
+			//});
+
+	  	}
+	  	}
+
+
+	  	// Bind our overlay to the map…
+	  	overlay.setMap(map);
+	});
+
+
+	</script>
+
+	<div id="footer" class="description">
+		<br>Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug.</a> 
+		 Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||  
+		This page is built on top of <a href="http://d3js.org/" rel="link">D3JS</a> and <a href="https://www.google.com/maps" rel="link"> Google Maps</a>. This is a work in Progress... Check <a href="https://github.com/mostaphaRoudsari/epwmap/issues?q=is%3Aopen+is%3Aissue" rel="link">open issues</a> on Github to help or add your wishes!
+	</div>
+
 </div>
 
 <script>
@@ -77,7 +318,6 @@ This is a work in Progress... Check <a href="https://github.com/mostaphaRoudsari
 
   ga('create', 'UA-57902264-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 
 </body>

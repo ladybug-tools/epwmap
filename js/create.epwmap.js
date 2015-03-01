@@ -116,7 +116,11 @@ d3.csv("./data/epw_weather_data.csv", function(error, data) {
 			title: function(d) {
 			  var d = this.__data__;
 			  return '<span style="font size:18px"> Station Name: ' + d.station_name + '<br> Data Source: ' + d.data_source + '<br><span>' +
-					 '<span> Latitude: ' + d.lat + '<br> Longitude: ' + d.lon + '<br><span>'; 
+					 '<span> Latitude: ' + d.lat + '<br> Longitude: ' + d.lon + '<br><br><span>' +
+					 '<span> #Hours of Strong Cold Stress: ' + d.strong_cold_stress + '<br> #Hours of Moderate Cold Stress: ' + d.moderate_cold_stress + '<br><span>' +
+					 '<span> #Hours of Slight Cold Stress: ' + d.slight_cold_stress + '<br> #Hours of Comfort: ' + d.no_thermal_stress + '<br><span>' +
+					 '<span> #Hours of Slight Heat Stress: ' + d.slight_heat_stress + '<br> #Hours of Moderate Heat Stress: ' + d.moderate_heat_stress + '<br><span>' +
+					 '<span> #Hours of Strong Heat Stress: ' + d.strong_heat_stress + '<br><span>'; 
 			}
       });
 });
