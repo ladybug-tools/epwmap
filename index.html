@@ -71,7 +71,28 @@
   		margin: 0;
   		padding: 0;
   	}
+
+  	.legend {
+		width: 21px;
+  		height: 20%;
+	  	font-family: sans-serif;
+  		/*
+  		float: right;
+  		position: absolute;;
+  		*/
+  		margin: auto;
+        /* padding-left: 24px;  /* Regular padding-left + 1. */
+        /* padding-top: 20%;  /* Regular padding-left + 1. */
+  	}
+
+  	.legend rect{
+        cursor: pointer;
+  	}
 	
+	rect.disabled {
+		fill: transparent !important;
+	}
+
 	#content {
 		/* padding-bottom:.2em;   /* Height of the footer element */
 		font-family : Courier New;
@@ -167,54 +188,70 @@
 
 <div id="wrapper">
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	<div id="content" class = "map"></div>
+	<div  id="content"  class = "legend"></div>
 
-	<div id="content" class = "map">
-
-		<!--
-		<script type="text/javascript" src = "./js/create.epwmap.js"></script> 
-		-->
-	</div>
 	<script type="text/javascript">
+	
 	// circle colors based on data source
 	
 	// Color20b
-	var circle_colors = {
-					"CSWD" : "#393b79",
-					"CWEC" : "#5254a3",
-					"CZ01RV2" : "#ce6dbd",
-					"CZ02RV2" : "#ce6dbd",
-					"CZ03RV2" : "#ce6dbd",
-					"CZ04RV2" : "#ce6dbd",
-					"CZ05RV2" : "#ce6dbd",
-					"CZ06RV2" : "#ce6dbd",
-					"CZ07RV2" : "#ce6dbd",
-					"CZ08RV2" : "#ce6dbd",
-					"CZ09RV2" : "#ce6dbd",
-					"CZ10RV2" : "#ce6dbd",
-					"CZ11RV2" : "#ce6dbd",
-					"CZ12RV2" : "#ce6dbd",
-					"CZ13RV2" : "#ce6dbd",
-					"CZ14RV2" : "#ce6dbd",
-					"CZ15RV2" : "#ce6dbd",
-					"CZ16RV2" : "#ce6dbd",
-					"CityUHK" : "#ce6dbd",
-					"ETMY" : "#17becf",
-					"IGDG" : "#17becf",
-					"IMGW" : "#17becf",
-					"INETI" : "#17becf",
-					"ISHRAE" : "#17becf",
-					"ITMY" : "#17becf",
-					"IWEC" : "brown",
-					"KISR" : "#17becf",
-					"MSI" : "#17becf",
-					"NIWA" : "#17becf",
-					"RMY" : "#17becf",
-					"SWEC" : "#17becf",
-					"SWERA" : "red",
-					"TMY3" : "#3182bd",
-					"TMY2" : "#e6550d",
-					"TMY" : "#31a354"
-					};
+	/*
+	var colors = d3.scale.ordinal()
+			.range(["#393b79", "#5254a3", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd",
+					"#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd",
+					"#ce6dbd", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "brown", "#17becf",
+					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
+		.domain(["CSWD", "CWEC", "CZ01RV2", "CZ02RV2", "CZ03RV2", "CZ04RV2", "CZ05RV2", "CZ06RV2", "CZ07RV2", "CZ08RV2", "CZ09RV2",
+					"CZ10RV2", "CZ11RV2", "CZ12RV2",	"CZ13RV2", "CZ14RV2", "CZ15RV2", "CZ16RV2", "CityUHK", "ETMY", "IGDG", "IMGW",
+					"INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY"]);
+	*/
+
+	var colors = d3.scale.ordinal()
+			.range(["#393b79", "#5254a3", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "brown", "#17becf",
+					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
+		.domain(["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC",
+				"SWERA", "TMY3", "TMY2", "TMY"]);
+
+	var legend = d3.select(".legend")
+		.append("svg")
+		.attr("width", "100px")
+		.attr("height", "100%")
+		
+		legend.selectAll("g")
+      		.data(colors.domain())
+    		.enter().append("g")
+      			.attr("transform", function(d, i) { return "translate(12," + (60 + 12 * (i + 1)) + ")"; });
+
+      	legend.selectAll("g").append("rect")
+			.attr("height", 10)
+			.attr("width", 10)
+			.style("opacity", ".6")
+			.style("fill", function(d, i){return colors(d);})
+			.style("stroke", "black")
+			.style("stroke-width", 1)
+			.on("click", function(d){
+				var rect = d3.select(this);
+				if (rect.attr('class') === 'disabled')
+					{
+						rect.attr('class', '');
+						// turn on circles and svgs
+						d3.selectAll("#" + rect.datum()).style("visibility", "visible");
+					}
+				else
+					{
+						rect.attr('class', 'disabled');
+						// turn off circles and svgs
+						d3.selectAll("#" + rect.datum()).style("visibility", "hidden");
+					}
+				});
+
+		legend.selectAll("g").append("text")
+			.attr("x", 11)
+      		.attr("y", 6)
+      		.attr("dy", ".35em")
+      		.attr("font-size", "12px")
+      		.text(function(d) { return d; });
 
 	// Create the Google Map…
 	var opt = { minZoom: 2,
@@ -234,7 +271,8 @@
 	var map = new google.maps.Map(d3.select(".map").node(), {
 	  zoom: 2,
 	  center: new google.maps.LatLng(5, 0),
-	  panControl: true,
+	  panControl: false,
+	  zoomControl: false,
 	  mapTypeId: google.maps.MapTypeId.TERRAIN
 	});
   	
@@ -275,7 +313,8 @@
 		          .each(transform) // update existing markers
 		        .enter().append("svg:svg")
 		          .each(transform)
-		          .attr("class", "marker");
+		          .attr("class", "marker")
+		          .attr("id", function(d) { return d.data_source;});
 
 		      // Add a circle.
 		      marker.append("svg:circle")
@@ -284,8 +323,10 @@
 	          	.attr("cy", padding)
 	          	.attr("stroke", "black")
 	          	.attr("stroke-width", 0)
+	          	.attr("class", "DOE")
+	          	.attr("id", function(d) { return d.data_source;})
 	          	.style("opacity", 0.1)
-	          	.style("fill", function(d) { return circle_colors[d.data_source];})
+	          	.style("fill", function(d) { return colors(d.data_source);})
 	          	.on("mouseover", function(d){
 	          		d3.select(this)
 	          			.style("stroke-width", ".3em")
@@ -401,7 +442,7 @@
 </div>
 
 <script>
-
+/*
   // google analytic
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -410,7 +451,7 @@
 
   ga('create', 'UA-57902264-1', 'auto');
   ga('send', 'pageview');
-
+*/
 </script>
 
 </body>
