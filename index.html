@@ -183,7 +183,7 @@
 <div id="header">
 	<a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank"><img src="./image/ladybug_honeybee_icon.png" style="height: 60px; vertical-align:middle; float:left; padding:2px;"></a>
 	
-	<h3><br>epwmap<span class="heading"> is developed as part of <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank">Ladybug + Honeybee</a> development. The goal of epwmap is to provide a single interface for all the available free .epw weather files. Currently it only shows the weather files from <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" target="_blank">DOE website</a> and other resources will be added soon. <b>Hover on circles to see more information about each station and click to download the files.</b>
+	<h3><br>epwmap<span class="heading"> is developed as part of <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank">Ladybug + Honeybee</a> development. The goal of epwmap is to provide a single interface for all the available free .epw weather files. Currently it only shows the weather files from <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" target="_blank">DOE website</a> and other resources will be added soon. <b>Hover on circles to see more information about each station and double click to download the files.</b>
 	</span>
 	</h3>
 </div>
@@ -220,6 +220,12 @@
 		.attr("width", "100px")
 		.attr("height", "100%")
 		
+		legend.append("rect")
+			.attr("height", 12 * (colors.domain().length + 0.5))
+			.attr("width", 58)
+			.style("fill", "white")
+			.attr("transform", "translate(10 ,70)");
+
 		legend.selectAll("g")
       		.data(colors.domain())
     		.enter().append("g")
@@ -334,7 +340,11 @@
 	          			.style("stroke-width", ".3em")
 						.style("cursor", "pointer")})
 	          	.on("mouseout", function(d){d3.select(this).style("stroke-width", "");})
-	          	.on("click", function(d){window.location = d.http_link;});
+	          	.on("dblclick", function(d){window.location = d.http_link;})
+	          	.on("contextmenu", function(d){
+	          		copyToClipboard(d.http_link);
+	          		d3.event.preventDefault(); //stop showing browser menu
+	          	});
 		      
 			
 				//tooltip
@@ -380,6 +390,9 @@
 	  	// Bind our overlay to the map…
 	  	overlay.setMap(map);
 
+	  	function copyToClipboard(text) {
+  			window.prompt("Press Ctrl+C and Enter to copy to clipboard", text);
+			}
 
      	// Create the search box and link it to the UI element.
      	// Modified from https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
