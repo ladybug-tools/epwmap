@@ -211,16 +211,14 @@
 					"CZ10RV2", "CZ11RV2", "CZ12RV2",	"CZ13RV2", "CZ14RV2", "CZ15RV2", "CZ16RV2", "CityUHK", "ETMY", "IGDG", "IMGW",
 					"INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY"]);
 	*/
-	var totalStations,
-		filteredHostsName,
-		filteredSourcesName,
-		legendSize = 12,
-		legendBackRectWidth = 58;
-
-	var inputParameters = {"showhost":[],
-						   "showsource":[],
-						   "hidehost":[],
-						   "hidesource":[]};
+	var inputParameters = { "showhost":[],
+						    "showsource":[],
+						    "hidehost":[],
+						    "hidesource":[],
+							"zoom":[],
+							"lon": [],
+							"lat":[]
+							};
 
 	var datasources = ["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC",
 				"SWERA", "TMY3", "TMY2", "TMY"]
@@ -230,7 +228,8 @@
 					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
 			.domain(datasources);
 
-	var hosts = ["DOE", "ONEBUILDING"];
+	
+	
 
 	// get url parameters
 	// current valid keys are "showhost", "showsource", "hidehost", "hidesource"
@@ -247,6 +246,17 @@
 
 	// read optional url parameters
 	parseUri();
+
+	var totalStations,
+		hosts = ["DOE", "ONEBUILDING"],
+		filteredHostsName,
+		filteredSourcesName,
+		mapzoom = 2,
+		maplon = 0,
+		maplat = 5,
+		legendSize = 12,
+		legendBackRectWidth = 58;
+
 
 	// if there is no input then use default values
 	// for now just show DOE data until resources form OneBuilding is ready to go
@@ -275,6 +285,11 @@
 	var weatherDataSources = filteredSourcesName.map(function(name) { return {name: name, show : true}; });
 
 	// Create the Google Map…
+	if (inputParameters["zoom"].length!=0) mapzoom = parseFloat(inputParameters["zoom"][0]);
+	if (inputParameters["lon"].length!=0) maplon = parseFloat(inputParameters["lon"][0]);
+	if (inputParameters["lat"].length!=0) maplat = parseFloat(inputParameters["lat"][0]);
+
+
 	var opt = { minZoom: 2,
 		maxZoom: 11,
 		streetViewControl: false};
@@ -290,8 +305,8 @@
 	];
 
 	var map = new google.maps.Map(d3.select(".map").node(), {
-	  zoom: 2,
-	  center: new google.maps.LatLng(5, 0),
+	  zoom: mapzoom,
+	  center: new google.maps.LatLng(maplat, maplon),
 	  panControl: false,
 	  zoomControl: false,
 	  mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -303,7 +318,8 @@
   	var zoomRange = (map.maxZoom - map.minZoom); //use this to set the opacity of circles
 
   	// Load the station data. When the data comes back, create an overlay.
-	d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(data) {
+	//d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(data) {
+	d3.csv("./data/epw_weather_data.csv", function(data) {
 	  
 	  //filter data based on host - in this way different hosts can embed the map using the host param
 	  // for instance http://mostapharoudsari.github.io/epwmap?showhost=onebuilding will only show files from onebuilding
