@@ -72,17 +72,15 @@
   		padding: 0;
   	}
 
-  	.legend {
-		width: 21px;
-  		height: 20%;
+  	.legend, .hlegend {
+		width: 0px;
+  		height:0px;
 	  	font-family: sans-serif;
-  		/*
-  		float: right;
-  		position: absolute;;
-  		*/
   		margin: auto;
-        /* padding-left: 24px;  /* Regular padding-left + 1. */
-        /* padding-top: 20%;  /* Regular padding-left + 1. */
+   	}
+
+  	.hlegend rect{
+        cursor: pointer;
   	}
 
   	.legend rect{
@@ -90,6 +88,10 @@
   	}
 	
 	rect.disabled {
+		fill: transparent !important;
+	}
+
+	circle.disabled {
 		fill: transparent !important;
 	}
 
@@ -191,6 +193,7 @@
 <div id="wrapper">
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="content" class = "map"></div>
+	<div  id="content"  class = "hlegend"></div>
 	<div  id="content"  class = "legend"></div>
 
 	<script type="text/javascript">
@@ -208,58 +211,68 @@
 					"CZ10RV2", "CZ11RV2", "CZ12RV2",	"CZ13RV2", "CZ14RV2", "CZ15RV2", "CZ16RV2", "CityUHK", "ETMY", "IGDG", "IMGW",
 					"INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY"]);
 	*/
+	var totalStations,
+		filteredHostsName,
+		filteredSourcesName,
+		legendSize = 12,
+		legendBackRectWidth = 58;
+
+	var inputParameters = {"showhost":[],
+						   "showsource":[],
+						   "hidehost":[],
+						   "hidesource":[]};
+
+	var datasources = ["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC",
+				"SWERA", "TMY3", "TMY2", "TMY"]
 
 	var colors = d3.scale.ordinal()
 			.range(["#393b79", "#5254a3", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "brown", "#17becf",
 					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
-		.domain(["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC",
-				"SWERA", "TMY3", "TMY2", "TMY"]);
+			.domain(datasources);
 
-	var legend = d3.select(".legend")
-		.append("svg")
-		.attr("width", "100px")
-		.attr("height", "100%")
-		
-		legend.append("rect")
-			.attr("height", 12 * (colors.domain().length + 0.5))
-			.attr("width", 58)
-			.style("fill", "white")
-			.attr("transform", "translate(10 ,70)");
+	var hosts = ["DOE", "ONEBUILDING"];
 
-		legend.selectAll("g")
-      		.data(colors.domain())
-    		.enter().append("g")
-      			.attr("transform", function(d, i) { return "translate(12," + (60 + 12 * (i + 1)) + ")"; });
+	// get url parameters
+	// current valid keys are "showhost", "showsource", "hidehost", "hidesource"
+	function parseUri(){
+		var pars = window.location.search.replace("?","").split("&")
+		if (pars[0]=="") return null;
 
-      	legend.selectAll("g").append("rect")
-			.attr("height", 10)
-			.attr("width", 10)
-			.style("opacity", ".6")
-			.style("fill", function(d, i){return colors(d);})
-			.style("stroke", "black")
-			.style("stroke-width", 1)
-			.on("click", function(d){
-				var rect = d3.select(this);
-				if (rect.attr('class') === 'disabled')
-					{
-						rect.attr('class', '');
-						// turn on circles and svgs
-						d3.selectAll("#" + rect.datum()).style("visibility", "visible");
-					}
-				else
-					{
-						rect.attr('class', 'disabled');
-						// turn off circles and svgs
-						d3.selectAll("#" + rect.datum()).style("visibility", "hidden");
-					}
-				});
+		pars.forEach(function(d){
+			keyValue = d.split("=");
+			inputParameters[keyValue[0].toLowerCase()].push(keyValue[1].toUpperCase());
+		})
 
-		legend.selectAll("g").append("text")
-			.attr("x", 11)
-      		.attr("y", 6)
-      		.attr("dy", ".35em")
-      		.attr("font-size", "12px")
-      		.text(function(d) { return d; });
+	}
+
+	// read optional url parameters
+	parseUri();
+
+	// if there is no input then use default values
+	// for now just show DOE data until resources form OneBuilding is ready to go
+	// then it should change to DOE and onebuilding
+	if (inputParameters["showhost"].length===0){
+			filteredHostsName = ["DOE"];
+		}else{
+			filteredHostsName = inputParameters["showhost"];
+		}
+
+	if (inputParameters["showsource"].length===0){
+			filteredSourcesName = datasources;
+		}else{
+			filteredSourcesName = inputParameters["showsource"];
+		}
+
+	// filter data that should be hidden if any
+	filteredHostsName = filteredHostsName.filter(function(d){return inputParameters["hidehost"].indexOf(d)==-1;});
+	filteredSourcesName = filteredSourcesName.filter(function(d){return inputParameters["hidesource"].indexOf(d)==-1;});
+
+
+	// create an object for each website to keep track of turn off and on 
+	var hostWebsites = filteredHostsName.map(function(name) { return {name: name, show : true}; });
+
+	// create object for each data source to keep track of on and off objects
+	var weatherDataSources = filteredSourcesName.map(function(name) { return {name: name, show : true}; });
 
 	// Create the Google Map…
 	var opt = { minZoom: 2,
@@ -291,7 +304,20 @@
 
   	// Load the station data. When the data comes back, create an overlay.
 	d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(data) {
-		
+	  
+	  //filter data based on host - in this way different hosts can embed the map using the host param
+	  // for instance http://mostapharoudsari.github.io/epwmap?showhost=onebuilding will only show files from onebuilding
+	  data = data.filter(function(d){
+	  	return filteredHostsName.indexOf(d.host.toUpperCase())>-1 && filteredSourcesName.indexOf(d.data_source.toUpperCase())>-1;
+	  });
+
+	  // make sure all ids and classes are uppercase
+	  data = data.map(function(d){
+	  		d.host = d.host.toUpperCase();
+	  		d.data_source = d.data_source.toUpperCase();
+	  		return d;
+	  	});
+
 	  var zoomScale = (map.maxZoom - map.zoom)/zoomRange;
 	  var overlay = new google.maps.OverlayView();
 
@@ -322,6 +348,7 @@
 		        .enter().append("svg:svg")
 		          .each(transform)
 		          .attr("class", "marker")
+	          	  .attr("class", function(d) { return d.host;})
 		          .attr("id", function(d) { return d.data_source;});
 
 		      // Add a circle.
@@ -331,7 +358,7 @@
 	          	.attr("cy", padding)
 	          	.attr("stroke", "black")
 	          	.attr("stroke-width", 0)
-	          	.attr("class", "DOE")
+	          	.attr("class", function(d) { return d.host;})
 	          	.attr("id", function(d) { return d.data_source;})
 	          	.style("opacity", 0.1)
 	          	.style("fill", function(d) { return colors(d.data_source);})
@@ -443,6 +470,141 @@
 		    map.fitBounds(bounds);
 		});
 
+		
+		// add legend for weather sources
+		//http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_sources.cfm
+
+		//I should re-write this part and define padding and size in a logical way
+		
+		if (filteredHostsName.indexOf("ONEBUILDING")!=-1) legendBackRectWidth= 96;
+
+		var legend = d3.select(".legend")
+			.attr("height", 100) //legendSize * (weatherDataSources.length + 2.5) + 60)
+			.append("svg")
+			.attr("width", legendBackRectWidth + 10)
+			.attr("height", legendSize * (weatherDataSources.length + 2.5) + 60)
+			
+		legend.append("rect")
+			.attr("height", legendSize * (weatherDataSources.length + 2.5))
+			.attr("width", legendBackRectWidth)
+			.style("fill", "white")
+			.style("cursor", "none")
+			.attr("transform", "translate(10 ,60)");
+		
+		legend.append("text")
+			.attr("x", 2)
+      		.attr("y", 6)
+      		.attr("dy", ".35em")
+      		.attr("font-size", "12px")
+      		.attr("font-weight", "bold")
+      		.attr("text-decoration", "underline")
+      		.attr("transform", "translate(10 ,60)")
+      		.text("Sources");
+
+		legend.selectAll("g")
+      		.data(weatherDataSources)
+    		.enter().append("g")
+      			.attr("transform", function(d, i) { return "translate(12," + (60 + legendSize * (i + 2)) + ")"; });
+
+      	legend.selectAll("g").append("rect")
+			.attr("height", legendSize - 2)
+			.attr("width", legendSize - 2)
+			.style("opacity", ".6")
+			.style("fill", function(d){return colors(d.name);})
+			.style("stroke", "black")
+			.style("stroke-width", 1)
+			.on("click", function(d){
+				var rect = d3.select(this);
+				if (rect.attr('class') === 'disabled')
+					{
+						rect.attr('class', '');
+						// turn on circles and svgs with same id
+						d3.selectAll("#" + d.name)
+							.filter(function(d){
+							return hostWebsites.filter(function(j){return j.name == d.host.toUpperCase();})[0].show === true;}) // check if host is on
+							.style("visibility", "visible");
+						d.show = true;
+					}
+				else
+					{
+						rect.attr('class', 'disabled');
+						// turn off circles and svgs with same id
+						d3.selectAll("#" + d.name).style("visibility", "hidden");
+						d.show = false;
+					}
+				});
+
+		legend.selectAll("g").append("text")
+			.attr("x", 11)
+      		.attr("y", 6)
+      		.attr("dy", ".35em")
+      		.attr("font-size", "12px")
+      		.text(function(d) { return d.name; });
+		
+      	// add a legend for web host sources
+      	var ymove = legendSize * (weatherDataSources.length + 2.5) + 60;
+
+		var hlegend = d3.select(".hlegend")
+			.append("svg")
+			.attr("width", legendBackRectWidth + 10)
+			.attr("height", "100%");
+			
+		hlegend.append("rect")
+			.attr("height", 12 * (hostWebsites.length + 2.5))
+			.attr("width", legendBackRectWidth)
+			.style("fill", "white")
+			.style("cursor", "none")
+			.attr("transform", "translate(10 ," + ymove + ")");
+		
+		hlegend.append("text")
+			.attr("x", 2)
+      		.attr("y", 6)
+      		.attr("dy", ".35em")
+      		.attr("font-size", "12px")
+      		.attr("font-weight", "bold")
+      		//.attr("text-decoration", "underline")
+      		.attr("transform", "translate(10 ," + ymove + ")")
+      		.text("_______"); // I'm not sure what to put here for text!
+
+		hlegend.selectAll("g")
+      		.data(hostWebsites)
+    		.enter().append("g")
+      			.attr("transform", function(d, i) { return "translate(12," + (ymove + legendSize * (i + 2)) + ")"; });			
+
+      	hlegend.selectAll("g").append("rect")
+			.attr("height", legendSize - 2)
+			.attr("width", legendSize - 2)
+			.style("opacity", ".6")
+			.style("fill", "black")
+			.style("stroke", "black")
+			.style("stroke-width", 1)
+			.on("click", function(d){
+				var rect = d3.select(this);
+				if (rect.attr('class') === 'disabled')
+					{
+						rect.attr('class', '');
+						// turn on circles and svgs with same id
+						d3.selectAll("." + d.name)
+							.filter(function(d){
+							return weatherDataSources.filter(function(j){return j.name == d.data_source.toUpperCase();})[0].show === true;}) // check if host is on
+							.style("visibility", "visible");
+						d.show = true;
+					}
+				else
+					{
+						rect.attr('class', 'disabled');
+						// turn off circles and svgs with same id
+						d3.selectAll("." + d.name).style("visibility", "hidden");
+						d.show = false;
+					}
+				});
+		
+		hlegend.selectAll("g").append("text")
+			.attr("x", 11)
+      		.attr("y", 6)
+      		.attr("dy", ".35em")
+      		.attr("font-size", "12px")
+      		.text(function(d) { return d.name;});			
 	});
 
 
