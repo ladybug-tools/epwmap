@@ -1,8 +1,9 @@
 epwmap
 ======
 
-A web page to map available .epw weather files from US Department of Energy on the [3D] world map
-http://mostapharoudsari.github.io/epwmap
+[epwmap](http://mostapharoudsari.github.io/epwmap) is developed as part of Ladybug + Honeybee development. The goal of epwmap is to provide a single interface for all the available free .epw weather files.
+
+![Screenshot](https://pbs.twimg.com/tweet_video_thumb/B_J7D3RUQAAHwtV.png)
 
 Credits
 =======
