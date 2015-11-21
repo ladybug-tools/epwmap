@@ -59,7 +59,7 @@
 	    color: black;
 	}
 
-	
+
 	#wrapper {
 		min-height:90%;
 		position:relative;
@@ -86,7 +86,7 @@
   	.legend rect{
         cursor: pointer;
   	}
-	
+
 	rect.disabled {
 		fill: transparent !important;
 	}
@@ -102,12 +102,12 @@
 		position: absolute; /* Center Vertically */
 		height:100%;
 	}
-	
+
 	#footer {
 		width:100%;
 		height:1em; /* Height of the footer element */
 		position:absolute;
-		bottom:0; 
+		bottom:0;
 		left:0;
 		font: normal 11px Arial;
 	}
@@ -164,9 +164,9 @@
 </style>
 
 <head>
-	
+
 	<title>epwmap</title>
-	
+
 </head>
 
 
@@ -174,7 +174,7 @@
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v0.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 <script src="./js/jquery.tipsy.js"></script>
 <script src="./js/pace.min.js"></script>
 <link rel="stylesheet" href="./css/tipsy.css" type="text/css"/>
@@ -184,10 +184,23 @@
 
 <div id="header">
 	<a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank"><img src="./image/ladybug_honeybee_icon.png" style="height: 60px; vertical-align:middle; float:left; padding:2px;"></a>
-	
+
 	<h3><br>epwmap<span class="heading"> is developed as part of <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank">Ladybug + Honeybee</a> development. The goal of epwmap is to provide a single interface for all the available free .epw weather files. Currently it only shows the weather files from <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" target="_blank">DOE website</a> and other resources will be added soon. <b>Hover on circles to see more information about each station and double click to download the files.</b>
 	</span>
 	</h3>
+</div>
+
+<div>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- epwmap_add -->
+	<ins class="adsbygoogle"
+	     style="display:block"
+	     data-ad-client="ca-pub-3910371860767043"
+	     data-ad-slot="8443151211"
+	     data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 </div>
 
 <div id="wrapper">
@@ -197,9 +210,9 @@
 	<div  id="content"  class = "legend"></div>
 
 	<script type="text/javascript">
-	
+
 	// circle colors based on data source
-	
+
 	// Color20b
 	/*
 	var colors = d3.scale.ordinal()
@@ -228,8 +241,6 @@
 					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
 			.domain(datasources);
 
-	
-	
 
 	// get url parameters
 	// current valid keys are "showhost", "showsource", "hidehost", "hidesource"
@@ -278,7 +289,7 @@
 	filteredSourcesName = filteredSourcesName.filter(function(d){return inputParameters["hidesource"].indexOf(d)==-1;});
 
 
-	// create an object for each website to keep track of turn off and on 
+	// create an object for each website to keep track of turn off and on
 	var hostWebsites = filteredHostsName.map(function(name) { return {name: name, show : true}; });
 
 	// create object for each data source to keep track of on and off objects
@@ -311,16 +322,16 @@
 	  zoomControl: false,
 	  mapTypeId: google.maps.MapTypeId.TERRAIN
 	});
-  	
+
   	map.setOptions(opt); //limit zooming
 	map.setOptions({styles: grayScaleStyle}); //grayscale
-  	
+
   	var zoomRange = (map.maxZoom - map.minZoom); //use this to set the opacity of circles
 
   	// Load the station data. When the data comes back, create an overlay.
 	//d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(data) {
 	d3.csv("./data/epw_weather_data.csv", function(data) {
-	  
+
 	  //filter data based on host - in this way different hosts can embed the map using the host param
 	  // for instance http://mostapharoudsari.github.io/epwmap?showhost=onebuilding will only show files from onebuilding
 	  data = data.filter(function(d){
@@ -388,12 +399,12 @@
 	          		copyToClipboard(d.http_link);
 	          		d3.event.preventDefault(); //stop showing browser menu
 	          	});
-		      
-			
+
+
 				//tooltip
-				$('svg circle').tipsy({ 
-					gravity: 'nw', 
-					html: true, 
+				$('svg circle').tipsy({
+					gravity: 'nw',
+					html: true,
 					title: function(d) {
 					  var d = this.__data__;
 					  return '<span style="font size:18px"> Station Name: ' + d.station_name + '<br> Data Source: ' + d.data_source + '<br><span>' +
@@ -401,13 +412,13 @@
 					 '<span> #Hours of Strong Cold Stress: ' + d.strong_cold_stress + '<br> #Hours of Moderate Cold Stress: ' + d.moderate_cold_stress + '<br><span>' +
 					 '<span> #Hours of Slight Cold Stress: ' + d.slight_cold_stress + '<br> #Hours of Comfort: ' + d.no_thermal_stress + '<br><span>' +
 					 '<span> #Hours of Slight Heat Stress: ' + d.slight_heat_stress + '<br> #Hours of Moderate Heat Stress: ' + d.moderate_heat_stress + '<br><span>' +
-					 '<span> #Hours of Strong Heat Stress: ' + d.strong_heat_stress + '<br><span>'; 
+					 '<span> #Hours of Strong Heat Stress: ' + d.strong_heat_stress + '<br><span>';
 					}
 				});
 
 		      updateOpacity();
 
-		      
+
 		      function transform(d) {
 		        d = new google.maps.LatLng(d.lat, d.lon);
 		        d = projection.fromLatLngToDivPixel(d);
@@ -417,7 +428,7 @@
 		      }
 
 		      function updateOpacity(){
-		      	
+
 		      	var zoomScale = (map.maxZoom - map.zoom)/zoomRange;
 		      	var raduis =  8 - 4.5 * zoomScale;
 
@@ -441,17 +452,17 @@
      	// Modified from https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
      	var markers = [];
 	  	var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
-	  	
+
 	  	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-	  	
+
 	  	var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
 
 	  	// Listen for the event fired when the user selects an item from the
 	  	// pick list. Retrieve the matching places for that item.
 	  	google.maps.event.addListener(searchBox, 'places_changed', function() {
-	    	
+
 	    	var places = searchBox.getPlaces();
-	    	
+
 	    	if (places.length == 0) {return;}
 
 		    for (var i = 0, marker; marker = markers[i]; i++) {
@@ -486,12 +497,12 @@
 		    map.fitBounds(bounds);
 		});
 
-		
+
 		// add legend for weather sources
 		//http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_sources.cfm
 
 		//I should re-write this part and define padding and size in a logical way
-		
+
 		if (filteredHostsName.indexOf("ONEBUILDING")!=-1) legendBackRectWidth= 96;
 
 		var legend = d3.select(".legend")
@@ -499,14 +510,14 @@
 			.append("svg")
 			.attr("width", legendBackRectWidth + 10)
 			.attr("height", legendSize * (weatherDataSources.length + 2.5) + 60)
-			
+
 		legend.append("rect")
 			.attr("height", legendSize * (weatherDataSources.length + 2.5))
 			.attr("width", legendBackRectWidth)
 			.style("fill", "white")
 			.style("cursor", "none")
 			.attr("transform", "translate(10 ,60)");
-		
+
 		legend.append("text")
 			.attr("x", 2)
       		.attr("y", 6)
@@ -556,7 +567,7 @@
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
       		.text(function(d) { return d.name; });
-		
+
       	// add a legend for web host sources
       	var ymove = legendSize * (weatherDataSources.length + 2.5) + 60;
 
@@ -564,14 +575,14 @@
 			.append("svg")
 			.attr("width", legendBackRectWidth + 10)
 			.attr("height", "100%");
-			
+
 		hlegend.append("rect")
 			.attr("height", 12 * (hostWebsites.length + 2.5))
 			.attr("width", legendBackRectWidth)
 			.style("fill", "white")
 			.style("cursor", "none")
 			.attr("transform", "translate(10 ," + ymove + ")");
-		
+
 		hlegend.append("text")
 			.attr("x", 2)
       		.attr("y", 6)
@@ -585,7 +596,7 @@
 		hlegend.selectAll("g")
       		.data(hostWebsites)
     		.enter().append("g")
-      			.attr("transform", function(d, i) { return "translate(12," + (ymove + legendSize * (i + 2)) + ")"; });			
+      			.attr("transform", function(d, i) { return "translate(12," + (ymove + legendSize * (i + 2)) + ")"; });
 
       	hlegend.selectAll("g").append("rect")
 			.attr("height", legendSize - 2)
@@ -614,21 +625,21 @@
 						d.show = false;
 					}
 				});
-		
+
 		hlegend.selectAll("g").append("text")
 			.attr("x", 11)
       		.attr("y", 6)
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
-      		.text(function(d) { return d.name;});			
+      		.text(function(d) { return d.name;});
 	});
 
 
 	</script>
 
 	<div id="footer" class="description">
-		<br>Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug.</a> 
-		 Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||  
+		<br>Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug.</a>
+		 Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||
 		This page is built on top of <a href="http://d3js.org/" rel="link">D3JS</a> and <a href="https://www.google.com/maps" rel="link"> Google Maps</a>. This is a work in Progress... Check <a href="https://github.com/mostaphaRoudsari/epwmap/issues?q=is%3Aopen+is%3Aissue" rel="link">open issues</a> on Github to help or add your wishes!
 	</div>
 
