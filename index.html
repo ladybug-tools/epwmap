@@ -13,7 +13,7 @@
 	body {
 		margin:0;
 		padding:0;
-		height:95%;
+		height:100%;
 		background-color: white;
 		color: black;
 		font-family: sans-serif;
@@ -61,7 +61,7 @@
 
 
 	#wrapper {
-		min-height:90%;
+		min-height:95%;
 		position:relative;
 	}
 
@@ -72,7 +72,7 @@
   		padding: 0;
   	}
 
-  	.legend, .hlegend {
+  	.legend, .hlegend, .icon {
 		width: 0px;
   		height:0px;
 	  	font-family: sans-serif;
@@ -105,10 +105,11 @@
 
 	#footer {
 		width:100%;
-		height:1em; /* Height of the footer element */
+		height: 5%; /* Height of the footer element */
 		position:absolute;
-		bottom:0;
-		left:0;
+		bottom: 10px;
+		left: 20px;
+    right: 20px;
 		font: normal 11px Arial;
 	}
 
@@ -179,67 +180,30 @@
 <script src="./js/pace.min.js"></script>
 <link rel="stylesheet" href="./css/tipsy.css" type="text/css"/>
 <link rel="stylesheet" href="./css/pace.css" type="text/css"/>
+<!-- This key is connected to my account. Use your own key instead. -->
 <script src="https://maps.googleapis.com/maps/api/js?1.29.1&key=AIzaSyDuEqEn4QX8f9-Bn6cD09tI4dFOYE3QDw4&sensor=false&libraries=places&types=(cities)"></script>
 
-
-<div id="header">
-	<a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank"><img src="./image/ladybug_honeybee_icon.png" style="height: 60px; vertical-align:middle; float:left; padding:2px;"></a>
-
-	<h3><br>epwmap<span class="heading"> is developed as part of <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank">Ladybug + Honeybee</a> development. The goal of epwmap is to provide a single interface for all the available free .epw weather files. Currently it only shows the weather files from <a href="http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_about.cfm" target="_blank">DOE website</a> and other resources will be added soon. <b>Hover on circles to see more information about each station and double click to download the files.</b>
-	</span>
-	</h3>
-</div>
-
-<!--
-<div>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<ins class="adsbygoogle"
-	     style="display:block"
-	     data-ad-client="ca-pub-3910371860767043"
-	     data-ad-slot="8443151211"
-	     data-ad-format="auto"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-</div>
--->
-
-<div id="wrapper">
+  <div id="wrapper">
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="content" class = "map"></div>
-	<div  id="content"  class = "hlegend"></div>
-	<div  id="content"  class = "legend"></div>
-
+  <div id="content"  class = "legend"></div>
+  <div id="content"  class = "hlegend"></div>
+  <div id="content"  class = "icon"></div>
 	<script type="text/javascript">
 
 	// circle colors based on data source
+	var inputParameters = {
+      "showhost":[], "showsource":[], "hidehost":[], "hidesource":[], "zoom":[],
+	     "lon":[], "lat":[]
+	};
 
-	// Color20b
-	/*
-	var colors = d3.scale.ordinal()
-			.range(["#393b79", "#5254a3", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd",
-					"#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd", "#ce6dbd",
-					"#ce6dbd", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "brown", "#17becf",
-					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
-		.domain(["CSWD", "CWEC", "CZ01RV2", "CZ02RV2", "CZ03RV2", "CZ04RV2", "CZ05RV2", "CZ06RV2", "CZ07RV2", "CZ08RV2", "CZ09RV2",
-					"CZ10RV2", "CZ11RV2", "CZ12RV2",	"CZ13RV2", "CZ14RV2", "CZ15RV2", "CZ16RV2", "CityUHK", "ETMY", "IGDG", "IMGW",
-					"INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY"]);
-	*/
-	var inputParameters = { "showhost":[],
-						    "showsource":[],
-						    "hidehost":[],
-						    "hidesource":[],
-							"zoom":[],
-							"lon": [],
-							"lat":[]
-							};
-
-	var datasources = ["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE", "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC",
-				"SWERA", "TMY3", "TMY2", "TMY"]
+	var datasources = ["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE",
+    "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY"]
 
 	var colors = d3.scale.ordinal()
-			.range(["#393b79", "#5254a3", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "#17becf", "brown", "#17becf",
-					"#17becf", "#17becf", "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
+			.range(["#393b79", "#5254a3", "#17becf", "#17becf", "#17becf", "#17becf",
+              "#17becf", "#17becf", "brown", "#17becf", "#17becf", "#17becf",
+              "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
 			.domain(datasources);
 
 
@@ -267,14 +231,12 @@
 		maplon = 0,
 		maplat = 5,
 		legendSize = 12,
-		legendBackRectWidth = 58;
+		legendBackRectWidth = 110;
 
 
 	// if there is no input then use default values
-	// for now just show DOE data until resources form OneBuilding is ready to go
-	// then it should change to DOE and onebuilding
 	if (inputParameters["showhost"].length===0){
-			filteredHostsName = ["DOE"];
+			filteredHostsName = ["DOE", "ONEBUILDING"];
 		}else{
 			filteredHostsName = inputParameters["showhost"];
 		}
@@ -330,8 +292,8 @@
   	var zoomRange = (map.maxZoom - map.minZoom); //use this to set the opacity of circles
 
   	// Load the station data. When the data comes back, create an overlay.
-	//d3.csv("https://dl.dropboxusercontent.com/u/16228160/epw_weather_data.csv", function(data) {
-	d3.csv("./data/epw_weather_data.csv", function(data) {
+	d3.csv("https://raw.githubusercontent.com/ladybug-tools/epwmap/gh-pages/data/epw_weather_data.csv", function(data) {
+	// d3.csv("./data/epw_weather_data.csv", function(data) {
 
 	  //filter data based on host - in this way different hosts can embed the map using the host param
 	  // for instance http://mostapharoudsari.github.io/epwmap?showhost=onebuilding will only show files from onebuilding
@@ -352,10 +314,10 @@
 	  // Add the container when the overlay is added to the map.
 	  overlay.onAdd = function() {
 
-	    var layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
-	        .attr("class", "stations");
+	  var layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
+	   .attr("class", "stations");
 
-	    // set this as locally scoped var so event does not get confused
+	  // set this as locally scoped var so event does not get confused
 		var div = d3.select("div.stations");
 		var me = this;
 
@@ -501,23 +463,39 @@
 
 		// add legend for weather sources
 		//http://apps1.eere.energy.gov/buildings/energyplus/weatherdata_sources.cfm
-
 		//I should re-write this part and define padding and size in a logical way
 
-		if (filteredHostsName.indexOf("ONEBUILDING")!=-1) legendBackRectWidth= 96;
+    var legendHeight = legendBackRectWidth + legendSize * (weatherDataSources.length + 2.5);
+    var yTranslate = 90;
+    var iconsize = legendBackRectWidth / 2;
 
-		var legend = d3.select(".legend")
-			.attr("height", 100) //legendSize * (weatherDataSources.length + 2.5) + 60)
+    var icon = d3.select(".icon")
 			.append("svg")
-			.attr("width", legendBackRectWidth + 10)
-			.attr("height", legendSize * (weatherDataSources.length + 2.5) + 60)
+			.attr("width", iconsize)
+			.attr("height", iconsize)
+      .attr("transform", "translate(5, " + yTranslate + ")");
+
+    // add icon
+    icon.append("g")
+      // .attr("transform", "translate(0, " + yTranslate + ")")
+      .append("image")
+        .attr("xlink:href", "./image/ladybug_honeybee_icon.png")
+        .style("width", iconsize)
+        .append("title").text("epwmap is brought to you by ladybug.tools.");
+
+    var legend = d3.select(".legend")
+			.attr("height", legendHeight)
+			.append("svg")
+			.attr("width", legendBackRectWidth)
+			.attr("height", legendHeight)
+      .attr("transform", "translate(5, " + yTranslate + ")");
 
 		legend.append("rect")
 			.attr("height", legendSize * (weatherDataSources.length + 2.5))
+      .attr("transform", "translate(0, " + iconsize + ")")
 			.attr("width", legendBackRectWidth)
 			.style("fill", "white")
-			.style("cursor", "none")
-			.attr("transform", "translate(10 ,60)");
+			.style("cursor", "none");
 
 		legend.append("text")
 			.attr("x", 2)
@@ -526,15 +504,15 @@
       		.attr("font-size", "12px")
       		.attr("font-weight", "bold")
       		.attr("text-decoration", "underline")
-      		.attr("transform", "translate(10 ,60)")
+      		.attr("transform", "translate(10, " + iconsize + ")")
       		.text("Sources");
 
 		legend.selectAll("g")
       		.data(weatherDataSources)
     		.enter().append("g")
-      			.attr("transform", function(d, i) { return "translate(12," + (60 + legendSize * (i + 2)) + ")"; });
+      			.attr("transform", function(d, i) { return "translate(12," + (iconsize + legendSize * (i + 2)) + ")"; });
 
-      	legend.selectAll("g").append("rect")
+    legend.selectAll("g").append("rect")
 			.attr("height", legendSize - 2)
 			.attr("width", legendSize - 2)
 			.style("opacity", ".6")
@@ -563,26 +541,26 @@
 				});
 
 		legend.selectAll("g").append("text")
-			.attr("x", 11)
+			.attr("x", 15)
       		.attr("y", 6)
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
       		.text(function(d) { return d.name; });
 
-      	// add a legend for web host sources
-      	var ymove = legendSize * (weatherDataSources.length + 2.5) + 60;
+    // add a legend for web host sources
+    var ymove = legendHeight + iconsize;
 
 		var hlegend = d3.select(".hlegend")
 			.append("svg")
-			.attr("width", legendBackRectWidth + 10)
-			.attr("height", "100%");
+			.attr("width", legendBackRectWidth)
+			.attr("height", 12 * (hostWebsites.length + 2.5))
+      .attr("transform", "translate(5 , " + ymove + ")");
 
 		hlegend.append("rect")
 			.attr("height", 12 * (hostWebsites.length + 2.5))
 			.attr("width", legendBackRectWidth)
 			.style("fill", "white")
-			.style("cursor", "none")
-			.attr("transform", "translate(10 ," + ymove + ")");
+			.style("cursor", "none");
 
 		hlegend.append("text")
 			.attr("x", 2)
@@ -590,16 +568,16 @@
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
       		.attr("font-weight", "bold")
-      		//.attr("text-decoration", "underline")
-      		.attr("transform", "translate(10 ," + ymove + ")")
-      		.text("_______"); // I'm not sure what to put here for text!
+      		.attr("text-decoration", "underline")
+      		.attr("transform", "translate(10 ,0)")
+      		.text("Hosts"); // I'm not sure what to put here for text!
 
 		hlegend.selectAll("g")
       		.data(hostWebsites)
     		.enter().append("g")
-      			.attr("transform", function(d, i) { return "translate(12," + (ymove + legendSize * (i + 2)) + ")"; });
+      			.attr("transform", function(d, i) { return "translate(12," + (legendSize * (i + 2)) + ")"; });
 
-      	hlegend.selectAll("g").append("rect")
+    hlegend.selectAll("g").append("rect")
 			.attr("height", legendSize - 2)
 			.attr("width", legendSize - 2)
 			.style("opacity", ".6")
@@ -639,10 +617,21 @@
 	</script>
 
 	<div id="footer" class="description">
-		<br>Weather data information is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug.</a>
-		 Source code: <a href="https://github.com/mostaphaRoudsari/epwmap" rel="link">Github</a> ||
-		This page is built on top of <a href="http://d3js.org/" rel="link">D3JS</a> and <a href="https://www.google.com/maps" rel="link"> Google Maps</a>. This is a work in Progress... Check <a href="https://github.com/mostaphaRoudsari/epwmap/issues?q=is%3Aopen+is%3Aissue" rel="link">open issues</a> on Github to help or add your wishes!
-	</div>
+    <div id="header">
+    <!-- <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank"></a> -->
+
+    	<h3>epwmap is brought to you by <a href= "http://www.ladybug.tools" target="_blank">Ladybug Tools</a>.
+        The goal of the project is to provide a single interface for all the available free .epw weather files.
+        Currently it shows weather files hosted by
+        <a href="https://www.energyplus.net" target="_blank">EnergyPlus Website</a>
+        and <a href="http://climate.onebuilding.org/" target="_blank">One Building</a>.
+        <br>
+        <b>Hover on circles to see more information about each station and double click to download the files.</b>
+    	</h3>
+    </div>
+		The data is parsed by <a href="https://github.com/mostaphaRoudsari/ladybug" rel="link">Ladybug.</a>
+		You can check this page's source code on <a href="https://github.com/ladybug-tools/epwmap" rel="link">Github.</a>
+  </div>
 
 </div>
 
