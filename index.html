@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <style>
 	path {
-		  stroke: grey;
-		  stroke-width: 0.5px;
-		  fill: white;
+		  stroke-width: 1.5px;
 		}
 
 	html,
@@ -200,8 +198,10 @@
               "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
 			.domain(datasources);
 
+  var links = {'DOE': 'https://www.energyplus.net/weather-download',
+               'ONEBUILDING': 'http://climate.onebuilding.org'}
 
-	// get url parameters
+  // get url parameters
 	// current valid keys are "showhost", "showsource", "hidehost", "hidesource"
 	function parseUri(){
 		var pars = window.location.search.replace("?","").split("&")
@@ -356,13 +356,23 @@
 	          	.style("opacity", 0.1)
 	          	.style("fill", function(d) { return colors(d.data_source);})
 	          	.on("mouseover", function(d){
-	          		d3.select(this)
-	          			.style("stroke-width", ".3em")
-						.style("cursor", "pointer")})
-	          	.on("mouseout", function(d){d3.select(this).style("stroke-width", "");})
-	          	.on("dblclick", function(d){window.location = d.http_link;})
+	          		var c = d3.select(this);
+	              c.style("stroke-width", ".3em")
+                .style("cursor", "pointer");
+                var d = c.data()[0];
+                var comfort_data = [d.strong_heat_stress, d.moderate_heat_stress, d.slight_heat_stress,
+                                    d.no_thermal_stress, d.slight_cold_stress,
+                                    d.moderate_cold_stress, d.strong_cold_stress];
+                update_pie(comfort_data);
+              })
+	          	.on("mouseout",
+                    function(d){
+                      d3.select(this).style("stroke-width", "");
+                      update_pie();
+                  })
+	          	.on("dblclick", function(d){window.location = links[d.host] + d.http_link;})
 	          	.on("contextmenu", function(d){
-	          		copyToClipboard(d.http_link);
+	          		copyToClipboard(links[d.host] + d.http_link);
 	          		d3.event.preventDefault(); //stop showing browser menu
 	          	});
 
@@ -373,12 +383,13 @@
 					html: true,
 					title: function(d) {
 					  var d = this.__data__;
-					  return '<span style="font size:18px"> Station Name: ' + d.station_name + '<br> Data Source: ' + d.data_source + '<br><span>' +
-					 '<span> Latitude: ' + d.lat + '<br> Longitude: ' + d.lon + '<br><br><span>' +
-					 '<span> #Hours of Strong Cold Stress: ' + d.strong_cold_stress + '<br> #Hours of Moderate Cold Stress: ' + d.moderate_cold_stress + '<br><span>' +
-					 '<span> #Hours of Slight Cold Stress: ' + d.slight_cold_stress + '<br> #Hours of Comfort: ' + d.no_thermal_stress + '<br><span>' +
-					 '<span> #Hours of Slight Heat Stress: ' + d.slight_heat_stress + '<br> #Hours of Moderate Heat Stress: ' + d.moderate_heat_stress + '<br><span>' +
-					 '<span> #Hours of Strong Heat Stress: ' + d.strong_heat_stress + '<br><span>';
+					  return '<span style="font size:18px">' + d.id + '<br> Station Name: ' + d.station_name + '<br> Data Source: ' + d.data_source + '<br><span>' +
+            'Host: ' + d.host + '<br><br><span>' +
+            '<span> Latitude: ' + d.lat + '<br> Longitude: ' + d.lon + '<br><br><span>' +
+					  '<span> #Hours of Strong Cold Stress: ' + d.strong_cold_stress + '<br> #Hours of Moderate Cold Stress: ' + d.moderate_cold_stress + '<br><span>' +
+					  '<span> #Hours of Slight Cold Stress: ' + d.slight_cold_stress + '<br> #Hours of Comfort: ' + d.no_thermal_stress + '<br><span>' +
+					  '<span> #Hours of Slight Heat Stress: ' + d.slight_heat_stress + '<br> #Hours of Moderate Heat Stress: ' + d.moderate_heat_stress + '<br><span>' +
+					  '<span> #Hours of Strong Heat Stress: ' + d.strong_heat_stress + '<br><span>';
 					}
 				});
 
@@ -398,10 +409,10 @@
 		      	var zoomScale = (map.maxZoom - map.zoom)/zoomRange;
 		      	var raduis =  8 - 4.5 * zoomScale;
 
-				d3.selectAll(".stations circle")
-		      		.transition()
-		      		.attr("r", raduis)
-		      		.style("opacity", 1.2 - zoomScale);
+    				d3.selectAll(".stations circle")
+    		      		.transition()
+    		      		.attr("r", raduis)
+    		      		.style("opacity", 1.2 - zoomScale);
 		      }
 
 		  	}
@@ -482,7 +493,7 @@
       		.data(["./image/ladybug_honeybee_icon.png"])
     		.enter().append("g")
         .attr("class", "logo")
-        .attr("transform", "translate(" + iconsize / 2 + "," + yTranslate / 2 + ")")
+        .attr("transform", "translate(" + (legendBackRectWidth - iconsize) / 2 + "," + (-4 + yTranslate / 2) + ")")
       .append("image")
         .attr("xlink:href", "./image/ladybug_honeybee_icon.png")
         .style("width", iconsize)
@@ -490,7 +501,7 @@
 
 		svg.append("rect")
 			.attr("height", legendSize * (weatherDataSources.length + 2.5))
-      .attr("transform", "translate(0," + (yTranslate + iconsize) + ")")
+      .attr("transform", "translate(5," + (yTranslate + iconsize) + ")")
 			.attr("width", legendBackRectWidth)
 			.style("fill", "white")
 			.style("cursor", "none");
@@ -606,7 +617,47 @@
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
       		.text(function(d) { return d.name;});
-	});
+
+    // add pie chart
+    var pie_colors = ['#b2182b','#ef8a62','#fddbc7','#aee4b6','#d1e5f0','#67a9cf','#2166ac'],
+      titles = [
+        'Hours of Strong Heat Stress', 'Hours of Moderate Heat Stress',
+        'Hours of Slight Heat Stress', 'Hours of Comfort',
+        'Hours of Slight Cold Stress', 'Hours of Moderate Cold Stress',
+        'Hours of Strong Cold Stress'
+      ],
+      width = legendBackRectWidth;
+    // add pie chart
+    var place_holder_data = [10, 10, 10, 10, 10, 10, 10];
+   	var radius = width /2 ;
+
+    var pie = d3.layout.pie()(place_holder_data);
+
+    var arc = d3.svg.arc()
+        .innerRadius(radius / 2)
+        .outerRadius(radius - 5);
+
+    var pp = svg.append("g")
+        .attr("class", "pie")
+        .attr("transform", "translate(" + width / 2 +", " + (yTranslate - iconsize / 2) +")");
+
+    pp.selectAll("path")
+    	.attr("class", "pie")
+      .data(pie).enter()
+      	.append("path")
+      		.attr("fill", function(d, i) { return pie_colors[i]; })
+          .attr("stroke", "black")
+      		.attr("d", arc)
+          .append("title").text(function(d, i) { return titles[i]; });
+
+    function update_pie(new_data) {
+        // in my case number of values are always the same
+        new_data = new_data || [10, 10, 10, 10, 10, 10, 10];
+				var pie = d3.layout.pie().sort(null).value(function(d) { return d; })(new_data);
+				path = d3.select(".pie").selectAll("path").data(pie); // Compute the new angles
+				path.attr("d", arc); // redrawing the path
+    }
+    });
 
 
 	</script>
