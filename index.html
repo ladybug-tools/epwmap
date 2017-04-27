@@ -195,8 +195,8 @@
 
 	var colors = d3.scale.ordinal()
 			.range([
-        '#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928',
-        '#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','brown','#bc80bd','red','#ffed6f',
+        '#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','blue','#6a3d9a','#ffff99','#b15928',
+        '#8dd3c7','#ffffb3','green','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','brown','#bc80bd','red','#ffed6f',
         '#a6cee3','#1f78b4'
             ])
 			.domain(datasources);
@@ -499,7 +499,8 @@
         .attr("transform", "translate(" + (legendBackRectWidth - iconsize) / 2 + "," + (-4 + yTranslate / 2) + ")")
       .append("image")
         .attr("xlink:href", "./image/ladybug_honeybee_icon.png")
-        .style("width", iconsize)
+        .attr("width", iconsize)
+        .attr("height", iconsize)
         .append("title").text("epwmap is brought to you by ladybug.tools.");
 
 		svg.append("rect")
