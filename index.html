@@ -72,16 +72,12 @@
   		padding: 0;
   	}
 
-  	.legend, .hlegend, .icon {
+  	.legend {
 		width: 0px;
   		height:0px;
 	  	font-family: sans-serif;
   		margin: auto;
    	}
-
-  	.hlegend rect{
-        cursor: pointer;
-  	}
 
   	.legend rect{
         cursor: pointer;
@@ -187,8 +183,6 @@
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="content" class = "map"></div>
   <div id="content"  class = "legend"></div>
-  <div id="content"  class = "hlegend"></div>
-  <div id="content"  class = "icon"></div>
 	<script type="text/javascript">
 
 	// circle colors based on data source
@@ -282,8 +276,17 @@
 	  zoom: mapzoom,
 	  center: new google.maps.LatLng(maplat, maplon),
 	  panControl: false,
-	  zoomControl: false,
-	  mapTypeId: google.maps.MapTypeId.TERRAIN
+	  zoomControl: true,
+	  mapTypeId: google.maps.MapTypeId.TERRAIN,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+      position: google.maps.ControlPosition.TOP_CENTER
+    },
+    zoomControlOptions: {
+    position: google.maps.ControlPosition.RIGHT_CENTER
+    }
+
 	});
 
   	map.setOptions(opt); //limit zooming
@@ -416,7 +419,7 @@
      	var markers = [];
 	  	var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
 
-	  	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+	  	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
 	  	var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
 
@@ -467,52 +470,48 @@
 
     var legendHeight = legendBackRectWidth + legendSize * (weatherDataSources.length + 2.5);
     var yTranslate = 90;
-    var iconsize = legendBackRectWidth / 2;
+    var iconsize = 50; //legendBackRectWidth / 2;
 
-    var icon = d3.select(".icon")
+    var svg = d3.select(".legend")
 			.append("svg")
-			.attr("width", iconsize)
-			.attr("height", iconsize)
-      .attr("transform", "translate(5, " + yTranslate + ")");
+			.attr("width", legendBackRectWidth)
+			.attr("height", "100%")
 
     // add icon
-    icon.append("g")
-      // .attr("transform", "translate(0, " + yTranslate + ")")
+    svg.selectAll("g.logo")
+      		.data(["./image/ladybug_honeybee_icon.png"])
+    		.enter().append("g")
+        .attr("class", "logo")
+        .attr("transform", "translate(" + iconsize / 2 + "," + yTranslate / 2 + ")")
       .append("image")
         .attr("xlink:href", "./image/ladybug_honeybee_icon.png")
         .style("width", iconsize)
         .append("title").text("epwmap is brought to you by ladybug.tools.");
 
-    var legend = d3.select(".legend")
-			.attr("height", legendHeight)
-			.append("svg")
-			.attr("width", legendBackRectWidth)
-			.attr("height", legendHeight)
-      .attr("transform", "translate(5, " + yTranslate + ")");
-
-		legend.append("rect")
+		svg.append("rect")
 			.attr("height", legendSize * (weatherDataSources.length + 2.5))
-      .attr("transform", "translate(0, " + iconsize + ")")
+      .attr("transform", "translate(0," + (yTranslate + iconsize) + ")")
 			.attr("width", legendBackRectWidth)
 			.style("fill", "white")
 			.style("cursor", "none");
 
-		legend.append("text")
+		svg.append("text")
 			.attr("x", 2)
       		.attr("y", 6)
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
       		.attr("font-weight", "bold")
       		.attr("text-decoration", "underline")
-      		.attr("transform", "translate(10, " + iconsize + ")")
+      		.attr("transform", "translate(10,"  + (yTranslate + iconsize) + ")")
       		.text("Sources");
 
-		legend.selectAll("g")
+		svg.selectAll("g.sources")
       		.data(weatherDataSources)
     		.enter().append("g")
-      			.attr("transform", function(d, i) { return "translate(12," + (iconsize + legendSize * (i + 2)) + ")"; });
+            .attr("class", "sources")
+      			.attr("transform", function(d, i) { return "translate(12," + (yTranslate + iconsize + legendSize * (i + 2)) + ")"; });
 
-    legend.selectAll("g").append("rect")
+    svg.selectAll("g.sources").append("rect")
 			.attr("height", legendSize - 2)
 			.attr("width", legendSize - 2)
 			.style("opacity", ".6")
@@ -540,7 +539,7 @@
 					}
 				});
 
-		legend.selectAll("g").append("text")
+		svg.selectAll("g").append("text")
 			.attr("x", 15)
       		.attr("y", 6)
       		.attr("dy", ".35em")
@@ -550,34 +549,30 @@
     // add a legend for web host sources
     var ymove = legendHeight + iconsize;
 
-		var hlegend = d3.select(".hlegend")
-			.append("svg")
-			.attr("width", legendBackRectWidth)
-			.attr("height", 12 * (hostWebsites.length + 2.5))
-      .attr("transform", "translate(5 , " + ymove + ")");
-
-		hlegend.append("rect")
+		svg.append("rect")
 			.attr("height", 12 * (hostWebsites.length + 2.5))
 			.attr("width", legendBackRectWidth)
+      .attr("transform", "translate(5," + ymove + ")")
 			.style("fill", "white")
-			.style("cursor", "none");
+      .style("cursor", "none");
 
-		hlegend.append("text")
+		svg.append("text")
 			.attr("x", 2)
       		.attr("y", 6)
       		.attr("dy", ".35em")
       		.attr("font-size", "12px")
       		.attr("font-weight", "bold")
       		.attr("text-decoration", "underline")
-      		.attr("transform", "translate(10 ,0)")
+      		.attr("transform", "translate(10," + ymove + ")")
       		.text("Hosts"); // I'm not sure what to put here for text!
 
-		hlegend.selectAll("g")
+		svg.selectAll("g.hosts")
       		.data(hostWebsites)
     		.enter().append("g")
-      			.attr("transform", function(d, i) { return "translate(12," + (legendSize * (i + 2)) + ")"; });
+            .attr("class", "hosts")
+      			.attr("transform", function(d, i) { return "translate(12," + (ymove + legendSize * (i + 2)) + ")"; });
 
-    hlegend.selectAll("g").append("rect")
+    svg.selectAll("g.hosts").append("rect")
 			.attr("height", legendSize - 2)
 			.attr("width", legendSize - 2)
 			.style("opacity", ".6")
@@ -605,7 +600,7 @@
 					}
 				});
 
-		hlegend.selectAll("g").append("text")
+		svg.selectAll("g.hosts").append("text")
 			.attr("x", 11)
       		.attr("y", 6)
       		.attr("dy", ".35em")
