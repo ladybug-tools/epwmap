@@ -190,12 +190,15 @@
 	};
 
 	var datasources = ["CSWD", "CWEC", "ETMY", "IGDG", "IMGW", "INETI", "ISHRAE",
-    "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY"]
+    "ITMY", "IWEC", "KISR", "MSI", "NIWA", "RMY", "SWEC", "SWERA", "TMY3", "TMY2", "TMY",
+    "CTZ2010", "WYEC2", "INMET", "BBSR", "TRY", "ISHRAE2014", "UHK", "CTZRV2"]
 
 	var colors = d3.scale.ordinal()
-			.range(["#393b79", "#5254a3", "#17becf", "#17becf", "#17becf", "#17becf",
-              "#17becf", "#17becf", "brown", "#17becf", "#17becf", "#17becf",
-              "#17becf", "#17becf", "red", "#3182bd", "#e6550d", "#31a354"])
+			.range([
+        '#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928',
+        '#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','brown','#bc80bd','red','#ffed6f',
+        '#a6cee3','#1f78b4'
+            ])
 			.domain(datasources);
 
   var links = {'DOE': 'https://www.energyplus.net/weather-download',
@@ -353,7 +356,7 @@
 	          	.attr("stroke-width", 0)
 	          	.attr("class", function(d) { return d.host;})
 	          	.attr("id", function(d) { return d.data_source;})
-	          	.style("opacity", 0.1)
+	          	.style("opacity", 0.3)
 	          	.style("fill", function(d) { return colors(d.data_source);})
 	          	.on("mouseover", function(d){
 	          		var c = d3.select(this);
@@ -412,7 +415,7 @@
     				d3.selectAll(".stations circle")
     		      		.transition()
     		      		.attr("r", raduis)
-    		      		.style("opacity", 1.2 - zoomScale);
+    		      		.style("opacity", 1.3 - zoomScale);
 		      }
 
 		  	}
