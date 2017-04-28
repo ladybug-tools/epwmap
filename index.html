@@ -15,7 +15,7 @@
 		background-color: white;
 		color: black;
 		font-family: sans-serif;
-    	font-weight: normal;
+    font-weight: normal;
 	}
 
 
@@ -176,7 +176,19 @@
 <link rel="stylesheet" href="./css/pace.css" type="text/css"/>
 <!-- This key is connected to my account. Use your own key instead. -->
 <script src="https://maps.googleapis.com/maps/api/js?1.29.1&key=AIzaSyDuEqEn4QX8f9-Bn6cD09tI4dFOYE3QDw4&sensor=false&libraries=places&types=(cities)"></script>
-
+  <div>
+    Circle radius:
+    <select id="resize" style="width: 160px;">
+      <option value="0" selected="true">None</option>
+      <option value="1">Strong Cold Stress</option>
+      <option value="2">Moderate Cold Stress</option>
+      <option value="3">Slight Cold Stress</option>
+      <option value="4">Comfortable Hours</option>
+      <option value="5">Slight Heat Stress</option>
+      <option value="6">Moderate Heat Stress</option>
+      <option value="7">Strong Heat Stress</option>
+    </select>
+  </div>
   <div id="wrapper">
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="content" class = "map"></div>
@@ -203,6 +215,8 @@
 
   var links = {'DOE': 'https://www.energyplus.net/weather-download',
                'ONEBUILDING': 'http://climate.onebuilding.org'}
+
+  var rc = 0;  // size of radius
 
   // get url parameters
 	// current valid keys are "showhost", "showsource", "hidehost", "hidesource"
@@ -396,8 +410,15 @@
 					}
 				});
 
-		      updateOpacity();
+        var select = d3.select("select#resize");
 
+        // add change event to update the radius
+        select.on("change", function(d) {
+          rc = parseInt(d3.select(this).property("value"));
+          updateOpacity();
+        });
+
+        updateOpacity();
 
 		      function transform(d) {
 		        d = new google.maps.LatLng(d.lat, d.lon);
@@ -408,13 +429,22 @@
 		      }
 
 		      function updateOpacity(){
-
-		      	var zoomScale = (map.maxZoom - map.zoom)/zoomRange;
-		      	var raduis =  8 - 4.5 * zoomScale;
+            var modes = ['strong_cold_stress', 'moderate_cold_stress', 'd.slight_cold_stress',
+              'no_thermal_stress', 'slight_heat_stress', 'moderate_heat_stress', 'strong_heat_stress']
+            var domains = [null, [0, 5000]];
+            var zoomScale = (map.maxZoom - map.zoom) / zoomRange;
+		      	var radius =  8 - 4.5 * zoomScale;
+            // add a scale for radius
+            var radiusScale = d3.scale.linear()
+              .domain([0, 8760]).range([1, 9]);
 
     				d3.selectAll(".stations circle")
-    		      		.transition()
-    		      		.attr("r", raduis)
+    		      		// .transition()
+    		      		.attr("r",
+                    function(d){
+                      // console.log(d[modes[rc - 1]]);
+                      return rc == 0 ? radius : radiusScale(d[modes[rc - 1]]);
+                    })
     		      		.style("opacity", 1.3 - zoomScale);
 		      }
 
@@ -562,7 +592,7 @@
       		.text(function(d) { return d.name; });
 
     // add a legend for web host sources
-    var ymove = legendHeight + iconsize;
+    var ymove = legendHeight + iconsize / 2;
 
 		svg.append("rect")
 			.attr("height", 12 * (hostWebsites.length + 2.5))
@@ -633,13 +663,13 @@
       width = legendBackRectWidth;
     // add pie chart
     var place_holder_data = [10, 10, 10, 10, 10, 10, 10];
-   	var radius = width /2 ;
+   	var pie_radius = width /2 ;
 
     var pie = d3.layout.pie()(place_holder_data);
 
     var arc = d3.svg.arc()
-        .innerRadius(radius / 2)
-        .outerRadius(radius - 5);
+        .innerRadius(pie_radius / 2)
+        .outerRadius(pie_radius - 5);
 
     var pp = svg.append("g")
         .attr("class", "pie")
@@ -665,7 +695,6 @@
 
 
 	</script>
-
 	<div id="footer" class="description">
     <div id="header">
     <!-- <a href= "https://www.facebook.com/LadyBugforGrasshopper" target="_blank"></a> -->
