@@ -429,14 +429,15 @@
 		      }
 
 		      function updateOpacity(){
-            var modes = ['strong_cold_stress', 'moderate_cold_stress', 'd.slight_cold_stress',
+            var modes = ['strong_cold_stress', 'moderate_cold_stress', 'slight_cold_stress',
               'no_thermal_stress', 'slight_heat_stress', 'moderate_heat_stress', 'strong_heat_stress']
-            var domains = [null, [0, 5000]];
+            var domains = [[0, 10], [0, 7478], [0, 4413], [0, 5441], [0, 8728],
+              [0, 4386], [0, 5778], [0, 3105]];
             var zoomScale = (map.maxZoom - map.zoom) / zoomRange;
 		      	var radius =  8 - 4.5 * zoomScale;
             // add a scale for radius
             var radiusScale = d3.scale.linear()
-              .domain([0, 8760]).range([1, 9]);
+              .domain(domains[rc]).range([1, 9]);
 
     				d3.selectAll(".stations circle")
     		      		// .transition()
