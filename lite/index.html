@@ -39,7 +39,7 @@
 
 		var markers = L.markerClusterGroup();
 		
-        datafile = "http://www.ladybug.tools/epwmap/data/epw_weather_data.csv";
+        datafile = "../data/epw_weather_data.csv";
         d3.csv(datafile, function(data) {
             for (var i = 0; i < data.length; i++) {
 
