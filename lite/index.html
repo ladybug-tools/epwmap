@@ -60,7 +60,7 @@
                 var popupString = "<table><tbody><tr><th>Station</th><td>"+ station_name +"</td></tr>"+
                     "<tr><th>Source</th><td>"+data_source+"</td></tr>"+
                     "<tr><th>Host</th><td>"+host+"</td></td></tr>"+
-                    "<tr><th>Epw</th><td><a href=\""+http_link+"\">link</a></td></tr>"+
+                    "<tr><th>Epw</th><td><a herf=\"#\" onclick=\"copyToClipboard('"+http_link+"')\">Get link</a></td></tr>"+
                     "</tbody></table>"
 
                 marker.bindPopup(popupString);
@@ -68,7 +68,12 @@
             }
         });
 
-		map.addLayer(markers);
+        map.addLayer(markers);
+        
+        
+        function copyToClipboard(text) {
+  			window.prompt("Press Ctrl+C and Enter to copy to clipboard", text);
+        }
 
 	</script>
 </body>
