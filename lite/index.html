@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EPW Map-lite</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="Control.OSMGeocoder.js"></script>
+	<link rel="stylesheet" href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" />
+
+</head>
+<body>
+
+	<div id="map"></div>
+    <script type="text/javascript">
+    
+    var map = L.map('map').setView([33, 0], 3);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 15,
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		id: 'mapbox.light'
+    }).addTo(map);
+    
+
+
+        var osmGeocoder = new L.Control.OSMGeocoder();
+        map.addControl(osmGeocoder);
+
+		var markers = L.markerClusterGroup();
+		
+        datafile = "../data/epw_weather_data.csv";
+        d3.csv(datafile, function(data) {
+            for (var i = 0; i < data.length; i++) {
+
+                var station_name = data[i].station_name;
+                var lat = data[i].lat;
+                var lon = data[i].lon;
+                var data_source = data[i].data_source;
+                var host = data[i].host;
+                var http_link = data[i].http_link;
+
+                if (host === "doe") {
+                    http_link = "https://energyplus.net/weather-download" + http_link;
+                }else{
+                    http_link = "http://climate.onebuilding.org" + http_link;
+                }
+
+                var marker = L.marker(new L.LatLng(lat, lon), { title: station_name });
+                var popupString = "<table><tbody><tr><th>Station</th><td>"+ station_name +"</td></tr>"+
+                    "<tr><th>Source</th><td>"+data_source+"</td></tr>"+
+                    "<tr><th>Host</th><td>"+host+"</td></td></tr>"+
+                    "<tr><th>Epw</th><td><a herf=\"#\" onclick=\"copyToClipboard('"+http_link+"')\">Get link</a></td></tr>"+
+                    "</tbody></table>"
+
+                marker.bindPopup(popupString);
+                markers.addLayer(marker);
+            }
+        });
+
+        map.addLayer(markers);
+        
+        
+        function copyToClipboard(text) {
+  			window.prompt("Press Ctrl+C and Enter to copy to clipboard", text);
+        }
+
+	</script>
+</body>
+</html>
