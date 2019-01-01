@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Style circles with a data-driven property</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+		.mapboxgl-popup {
+		    text-align: center;
+			max-width: 400px;
+			font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		}
+        .cp {
+            color: -webkit-link;
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-line: underline;
+            text-decoration-style: initial;
+            text-decoration-color: initial;
+        }
+    </style>
+	<script src="lib/clipboard.min.js"></script>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+// activate copy to clipboard.
+new ClipboardJS('.cp');
+
+</script>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibW9zdGFwaGFyb3Vkc2FyaSIsImEiOiJjanFkeTVtb3U0bzM3NDN1bHYwdzYxbHJoIn0.5i3Q1rxg-G3Gf8vZCjFXJQ';
+
+var pre_link = {'DOE': 'https://www.energyplus.net/weather-download',
+                'ONEBUILDING': 'http://climate.onebuilding.org'}
+
+			 var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v9',
+    zoom: 2,
+    center: [0, 0]
+});
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl({ position: 'top-left' }));
+
+
+map.on('load', function () {
+
+    map.addLayer({
+        'id': 'weather-stations',
+        'type': 'circle',
+        'source': {
+            type: 'vector',
+            url: 'mapbox://mostapharoudsari.cjqdyeoec51ce31qjf4125w3j-3wixj'
+        },
+        'source-layer': 'epwmap',
+        'paint': {
+			'circle-opacity': 0.5,
+            'circle-radius': {
+                'stops': [[2, 4], [40, 20]]
+            },
+            // color circles by data source
+            'circle-color': [
+                'match',
+                ['get', 'data_source'],
+			    "CSWD", '#a6cee3',
+				"CWEC", '#1f78b4',
+				"ETMY", '#b2df8a',
+				"IGDG", '#33a02c',
+				"IMGW", '#fb9a99',
+				"INETI", '#e31a1c',
+				"ISHRAE", '#fdbf6f',
+				"ITMY", '#ff7f00',
+				"IWEC", 'blue',
+				"KISR", '#6a3d9a',
+				"MSI", '#ffff99',
+				"NIWA", '#b15928',
+				"RMY", '#8dd3c7',
+				"SWEC", '#ffffb3',
+				"SWERA", 'green',
+				"TMY3", '#fb8072',
+				"TMY2", '#80b1d3',
+				"TMY", '#fdb462',
+				"CTZ2010", '#b3de69',
+				"WYEC2", '#fccde5',
+				"INMET", 'brown',
+				"BBSR", '#bc80bd',
+				"TRY", 'red',
+				"ISHRAE2014", '#ffed6f',
+				"UHK", '#a6cee3',
+				"CTZRV2",'#1f78b4',
+                /* other */ '#000'
+            ]
+        }
+    });
+});
+
+
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, { layers: ['weather-stations'] });
+
+  // if the features have no info, return nothing
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  // Populate the popup and set its coordinates
+  // based on the feature found
+  var popup = new mapboxgl.Popup()
+  .setLngLat(feature.geometry.coordinates)
+  .setHTML('<div id=\'popup\' class=\'popup\' style=\'z-index: 10;\'>' +
+  '<div>' + feature.properties['station_name'] + ' :: ' + feature.properties['id'] + ' :: ' + feature.properties['data_source'] + ' </div>' +
+  '<div> <a href=\'' + pre_link[feature.properties['host'].toUpperCase()] + feature.properties['http_link'] + '\' target=\'_blank\'>Download from ' + feature.properties['host'].toUpperCase() + '</a></div>' +
+  '<a class=\'cp\' data-clipboard-text=\'' + pre_link[feature.properties['host'].toUpperCase()] + feature.properties['http_link'] + '\'>Copy link to clipboard</a>' + 
+  '</div>')
+  .addTo(map);
+});
+
+// change the cursor style to 'pointer'
+map.on('mousemove', function(e) {
+  var features = map.queryRenderedFeatures(e.point, { layers: ['weather-stations'] });
+  map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+});
+
+</script>
+
+<script>
+
+  // google analytic
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57902264-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
