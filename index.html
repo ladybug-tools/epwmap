@@ -22,17 +22,63 @@
             text-decoration-style: initial;
             text-decoration-color: initial;
         }
+
+		.legend {
+			background-color: #fff;
+			border-radius: 3px;
+			top: 5px;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+			font: 10px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+			padding: 5px;
+			position: absolute;
+			left: 10px;
+			z-index: 1;
+		}
+	  
+		.legend h4 {
+			margin: 0 0 5px;
+		}
+
+		.legend p {
+			margin-bottom: 0px;
+			margin-top: 0px;
+			margin-left: 25px;
+			position: absolute;
+			display: block;
+			top: 0;
+		}
+
+		.legend div {
+			position:relative;
+		}
+
+		.legend div span {
+			border-radius: 50%;
+			display: inline-block;
+			margin-right: 5px;
+			opacity:0.8;
+			background-color:#D49A66;
+			width:10px;
+			height:10px;
+		}		
     </style>
 	<script src="lib/clipboard.min.js"></script>
 </head>
 <body>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
 
 <div id='map'></div>
+<div id='legend' class='legend'>
+	<a href='http://www.ladybug.tools' title='Brought to you by Ladybug Tools'>
+		<img style='width:50px; padding-left:20px' src='./image/ladybug.png'>
+	</a>
+	<h4>Weather file sources</h4>
+</div>
 
 <script>
 // activate copy to clipboard.
 new ClipboardJS('.cp');
-
 </script>
 
 <script>
@@ -41,23 +87,19 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibW9zdGFwaGFyb3Vkc2FyaSIsImEiOiJjanFkeTVtb3U0b
 var pre_link = {'DOE': 'https://www.energyplus.net/weather-download',
                 'ONEBUILDING': 'http://climate.onebuilding.org'}
 
-			 var map = new mapboxgl.Map({
+var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v9',
     zoom: 2,
     center: [0, 0]
 });
 
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl({ position: 'top-left' }));
-
-
 map.on('load', function () {
 
     map.addLayer({
         'id': 'weather-stations',
         'type': 'circle',
-        'source': {
+		'source': {
             type: 'vector',
             url: 'mapbox://mostapharoudsari.cjqdyeoec51ce31qjf4125w3j-3wixj'
         },
@@ -130,6 +172,26 @@ map.on('click', function(e) {
 map.on('mousemove', function(e) {
   var features = map.queryRenderedFeatures(e.point, { layers: ['weather-stations'] });
   map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+});
+
+// add search location tab
+map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
+
+// add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl({ position: 'top-right' }));
+
+// add legend
+var legend = document.getElementById('legend');
+var sources = [["CSWD", '#a6cee3'], ["CWEC", '#1f78b4'], ["ETMY", '#b2df8a'], ["IGDG", '#33a02c'],
+				["IMGW", '#fb9a99'], ["INETI", '#e31a1c'], ["ISHRAE", '#fdbf6f'], ["ITMY", '#ff7f00'],
+				["IWEC", 'blue'], ["KISR", '#6a3d9a'], ["MSI", '#ffff99'], ["NIWA", '#b15928'],
+				["RMY", '#8dd3c7'], ["SWEC", '#ffffb3'], ["SWERA", 'green'], ["TMY3", '#fb8072'],
+				["TMY2", '#80b1d3'], ["TMY", '#fdb462'], ["CTZ2010", '#b3de69'], ["WYEC2", '#fccde5'],
+				["INMET", 'brown'], ["BBSR", '#bc80bd'], ["TRY", 'red'], ["ISHRAE2014", '#ffed6f'],
+				["UHK", '#a6cee3'], ["CTZRV2",'#1f78b4']];
+
+sources.forEach(function(source) {
+  legend.insertAdjacentHTML('beforeend', '<div><span style=\'background-color:' + source[1] + '\'></span><p>' + source[0] + '</p></div>');
 });
 
 </script>
