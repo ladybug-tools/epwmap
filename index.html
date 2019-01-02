@@ -97,13 +97,13 @@ var map = new mapboxgl.Map({
 map.on('load', function () {
 
     map.addLayer({
-        'id': 'weather-stations',
+        'id': 'epwmap_data',
         'type': 'circle',
 		'source': {
             type: 'vector',
-            url: 'mapbox://mostapharoudsari.cjqdyeoec51ce31qjf4125w3j-3wixj'
+            url: 'mapbox://mostapharoudsari.cjqeo0ppz5dab2qqjct5fmuxi-44rx9'
         },
-        'source-layer': 'epwmap',
+        'source-layer': 'epwmap_data',
         'paint': {
 			'circle-opacity': 0.5,
             'circle-radius': {
@@ -139,7 +139,8 @@ map.on('load', function () {
 				"ISHRAE2014", '#ffed6f',
 				"UHK", '#a6cee3',
 				"CTZRV2",'#1f78b4',
-                /* other */ '#000'
+				"ISD-TMYx", '#fb8072',
+                /* other */ '#80b1d3'
             ]
         }
     });
@@ -147,7 +148,7 @@ map.on('load', function () {
 
 
 map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, { layers: ['weather-stations'] });
+  var features = map.queryRenderedFeatures(e.point, { layers: ['epwmap_data'] });
 
   // if the features have no info, return nothing
   if (!features.length) {
@@ -170,7 +171,7 @@ map.on('click', function(e) {
 
 // change the cursor style to 'pointer'
 map.on('mousemove', function(e) {
-  var features = map.queryRenderedFeatures(e.point, { layers: ['weather-stations'] });
+  var features = map.queryRenderedFeatures(e.point, { layers: ['epwmap_data'] });
   map.getCanvas().style.cursor = features.length ? 'pointer' : '';
 });
 
