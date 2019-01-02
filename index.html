@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Style circles with a data-driven property</title>
+    <title>epwmap</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
@@ -90,8 +90,8 @@ var pre_link = {'DOE': 'https://www.energyplus.net/weather-download',
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v9',
-    zoom: 2,
-    center: [0, 0]
+    zoom: 1.75,
+    center: [0, 25]
 });
 
 map.on('load', function () {
