@@ -70,7 +70,7 @@
 
 <div id='map'></div>
 <div id='legend' class='legend'>
-	<a href='http://www.ladybug.tools' title='Brought to you by Ladybug Tools'>
+	<a href='https://www.ladybug.tools' title='Brought to you by Ladybug Tools'>
 		<img style='width:50px; padding-left:20px' src='./image/ladybug.png'>
 	</a>
 	<h4>Weather file sources</h4>
@@ -85,7 +85,8 @@ new ClipboardJS('.cp');
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9zdGFwaGFyb3Vkc2FyaSIsImEiOiJjanFkeTVtb3U0bzM3NDN1bHYwdzYxbHJoIn0.5i3Q1rxg-G3Gf8vZCjFXJQ';
 
 var pre_link = {'DOE': 'https://www.energyplus.net/weather-download',
-                'ONEBUILDING': 'http://climate.onebuilding.org'}
+                'ONEBUILDING': 'http://climate.onebuilding.org',
+								'MN6':'https://www.ladybug.tools/epwmap/data/MeteonormEPW'}
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -140,6 +141,7 @@ map.on('load', function () {
 				"UHK", '#a6cee3',
 				"CTZRV2",'#1f78b4',
 				"ISD-TMYx", '#fb8072',
+				"MN6","#39CCFF",
                 /* other */ '#80b1d3'
             ]
         }
@@ -189,7 +191,7 @@ var sources = [["CSWD", '#a6cee3'], ["CWEC", '#1f78b4'], ["ETMY", '#b2df8a'], ["
 				["RMY", '#8dd3c7'], ["SWEC", '#ffffb3'], ["SWERA", 'green'], ["TMY3", '#fb8072'],
 				["TMY2", '#80b1d3'], ["TMY", '#fdb462'], ["CTZ2010", '#b3de69'], ["WYEC2", '#fccde5'],
 				["INMET", 'brown'], ["BBSR", '#bc80bd'], ["TRY", 'red'], ["ISHRAE2014", '#ffed6f'],
-				["UHK", '#a6cee3'], ["CTZRV2",'#1f78b4']];
+				["UHK", '#a6cee3'], ["CTZRV2",'#1f78b4'],["MN6","#39CCFF"]];
 
 sources.forEach(function(source) {
   legend.insertAdjacentHTML('beforeend', '<div><span style=\'background-color:' + source[1] + '\'></span><p>' + source[0] + '</p></div>');

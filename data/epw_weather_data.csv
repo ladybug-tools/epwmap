@@ -6466,7 +6466,7 @@ C00001,Climate_Zone_14,CTZRV2,35.7,-117.7,/north_and_central_america_wmo_region_
 871490,Saenz Pena AP,ISD-TMYx,-26.757,-60.493,/WMO_Region_3_South_America/ARG_Argentina/CC_Chaco/ARG_CC_Saenz.Pena.AP.871490_TMYx.zip,onebuilding
 871550,Resistencia Intl AP,ISD-TMYx,-27.45,-59.056,/WMO_Region_3_South_America/ARG_Argentina/CC_Chaco/ARG_CC_Resistencia.Intl.AP.871550_TMYx.zip,onebuilding
 871480,Saenz Pena AP,ISD-TMYx,-26.733,-60.483,/WMO_Region_3_South_America/ARG_Argentina/CC_Chaco/ARG_CC_Saenz.Pena.AP.871480_TMYx.zip,onebuilding
-871490,Saenz Peña AP,ArgTMY,-26.82,-60.45,/WMO_Region_3_South_America/ARG_Argentina/CC_Chaco/ARG_CC_Saenz.Pena.AP_871490_ArgTMY.zip,onebuilding
+871490,Saenz Peï¿½a AP,ArgTMY,-26.82,-60.45,/WMO_Region_3_South_America/ARG_Argentina/CC_Chaco/ARG_CC_Saenz.Pena.AP_871490_ArgTMY.zip,onebuilding
 871550,Resistencia Intl AP,ArgTMY,-27.45,-59.05,/WMO_Region_3_South_America/ARG_Argentina/CC_Chaco/ARG_CC_Resistencia.Intl.AP_871550_ArgTMY.zip,onebuilding
 878030,Esquel AP,ISD-TMYx,-42.908,-71.139,/WMO_Region_3_South_America/ARG_Argentina/CH_Chubut/ARG_CH_Esquel.AP.878030_TMYx.2003-2017.zip,onebuilding
 878140,Paso de Indios,ISD-TMYx,-43.817,-68.883,/WMO_Region_3_South_America/ARG_Argentina/CH_Chubut/ARG_CH_Paso.de.Indios.878140_TMYx.zip,onebuilding
@@ -7168,10 +7168,10 @@ C00001,Climate_Zone_14,CTZRV2,35.7,-117.7,/north_and_central_america_wmo_region_
 819910,Petrolina,INMET,-9.39,-40.51,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Petrolina.819910_INMET.zip,onebuilding
 819170,Surubim,INMET,-7.84,-35.79,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Surubim.819170_INMET.zip,onebuilding
 819550,Garanhuns,INMET,-8.89,-36.49,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Garanhuns.819550_INMET.zip,onebuilding
-828990,Recife Guararapes–Freyre Intl AP,ISD-TMYx,-8.126,-34.924,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Recife-Guararapes-Freyre.Intl.AP.828990_TMYx.2003-2017.zip,onebuilding
+828990,Recife Guararapesï¿½Freyre Intl AP,ISD-TMYx,-8.126,-34.924,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Recife-Guararapes-Freyre.Intl.AP.828990_TMYx.2003-2017.zip,onebuilding
 827890,Triunfo,ISD-TMYx,-7.85,-38.133,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Triunfo.827890_TMYx.2003-2017.zip,onebuilding
 819540,Ibimirim,INMET,-8.51,-37.71,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Ibimirim.819540_INMET.zip,onebuilding
-828990,Recife Guararapes–Freyre Intl AP,ISD-TMYx,-8.126,-34.924,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Recife-Guararapes-Freyre.Intl.AP.828990_TMYx.zip,onebuilding
+828990,Recife Guararapesï¿½Freyre Intl AP,ISD-TMYx,-8.126,-34.924,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Recife-Guararapes-Freyre.Intl.AP.828990_TMYx.zip,onebuilding
 827890,Triunfo,ISD-TMYx,-7.85,-38.133,/WMO_Region_3_South_America/BRA_Brazil/PE_Pernambuco/BRA_PE_Triunfo.827890_TMYx.zip,onebuilding
 818460,Alvorada do Gurgueia,INMET,-8.44,-43.86,/WMO_Region_3_South_America/BRA_Brazil/PI_Piaui/BRA_PI_Alvorada.do.Gurgueia.818460_INMET.zip,onebuilding
 822880,Parnaiba Silva Filho Intl AP,ISD-TMYx,-2.894,-41.732,/WMO_Region_3_South_America/BRA_Brazil/PI_Piaui/BRA_PI_Parnaiba-Silva.Filho.Intl.AP.822880_TMYx.zip,onebuilding
@@ -8336,7 +8336,7 @@ CAN270,Nitchequon AP,CWEC,53.2,-70.9,/WMO_Region_4_North_and_Central_America/CAN
 713880,La Baie,CWEC2016,48.298,-70.92,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_La.Baie.713880_CWEC2016.zip,onebuilding
 715540,Pointe-au-Pere,CWEC2016,48.51,-68.47,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Pointe.au.Pere.715540_CWEC2016.zip,onebuilding
 716910,Baie-Comeau AP,CWEC2016,49.133,-68.2,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Baie-Comeau.AP.716910_CWEC2016.zip,onebuilding
-718270,La Grande Rivière AP,CWEC,53.63,-77.7,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_La.Grande.Riviere.AP.718270_CWEC.zip,onebuilding
+718270,La Grande Riviï¿½re AP,CWEC,53.63,-77.7,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_La.Grande.Riviere.AP.718270_CWEC.zip,onebuilding
 711890,Pointe Claveau,CWEC2016,48.26,-70.114,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Pointe.Claveau.711890_CWEC2016.zip,onebuilding
 717320,Barrage Temiscamingue,CWEC2016,46.797,-79.101,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Barrage.Temiscamingue.717320_CWEC2016.zip,onebuilding
 717130,La Pocatiere,CWEC2016,47.355,-70.032,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_La.Pocatiere.717130_CWEC2016.zip,onebuilding
@@ -8358,7 +8358,7 @@ CAN270,Nitchequon AP,CWEC,53.2,-70.9,/WMO_Region_4_North_and_Central_America/CAN
 717140,Quebec-Lesage Intl AP,CWEC2016,46.791,-71.383,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Quebec-Lesage.Intl.AP.717140_CWEC2016.zip,onebuilding
 711860,Cap Rouge,CWEC2016,48.375,-70.535,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Cap.Rouge.711860_CWEC2016.zip,onebuilding
 711980,Lac Saint-Pierre,CWEC2016,46.183,-72.917,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Lac.Saint.Pierre.711980_CWEC2016.zip,onebuilding
-717150,Rivière-du-Loup,CWEC,47.81,-69.55,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Riviere-du-Loup.717150_CWEC.zip,onebuilding
+717150,Riviï¿½re-du-Loup,CWEC,47.81,-69.55,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Riviere-du-Loup.717150_CWEC.zip,onebuilding
 713840,Cap-Tourmente,CWEC2016,47.079,-70.781,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Cap.Tourmente.713840_CWEC2016.zip,onebuilding
 710400,Laterriere,CWEC2016,48.307,-71.129,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Laterriere.710400_CWEC2016.zip,onebuilding
 717150,Riviere-du-Loup,CWEC2016,47.806,-69.549,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Riviere.du.Loup.717150_CWEC2016.zip,onebuilding
@@ -8388,7 +8388,7 @@ CAN270,Nitchequon AP,CWEC,53.2,-70.9,/WMO_Region_4_North_and_Central_America/CAN
 718280,Schefferville AP,CWEC2016,54.805,-66.805,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Schefferville.AP.718280_CWEC2016.zip,onebuilding
 713730,Frelighsburg,CWEC2016,45.033,-72.85,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Frelighsburg.713730_CWEC2016.zip,onebuilding
 717180,Mont-Joli AP,CWEC2016,48.61,-68.21,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Mont-Joli.AP.717180_CWEC2016.zip,onebuilding
-718110,Sept-Îles AP,CWEC,50.22,-66.27,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Sept-Iles.AP.718110_CWEC.zip,onebuilding
+718110,Sept-ï¿½les AP,CWEC,50.22,-66.27,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Sept-Iles.AP.718110_CWEC.zip,onebuilding
 711880,Gaspe AP,CWEC2016,48.775,-64.48,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Gaspe.AP.711880_CWEC2016.zip,onebuilding
 716120,Montreal-College Jean-de-Brebeuf,CWEC,45.5,-73.58,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Montreal-College.Jean-de-Brebeuf.716120_CWEC.zip,onebuilding
 718110,Sept-Iles AP,CWEC2016,50.223,-66.266,/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Sept.Iles.AP.718110_CWEC2016.zip,onebuilding
@@ -10312,21 +10312,21 @@ C00014,Climate Zone 14,CTZRV2,35.7,-117.7,/WMO_Region_4_North_and_Central_Americ
 789250,Martinique Cesaire Intl AP,ISD-TMYx,14.591,-61.003,/WMO_Region_4_North_and_Central_America/MTQ_Martinique/MTQ_Martinique-Cesaire.Intl.AP.789250_TMYx.zip,onebuilding
 998246,Arecibo,ISD-TMYx,18.483,-66.7,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/AC_Arecibo/PRI_AC_Arecibo.998246_TMYx.2003-2017.zip,onebuilding
 998246,Arecibo,ISD-TMYx,18.483,-66.7,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/AC_Arecibo/PRI_AC_Arecibo.998246_TMYx.zip,onebuilding
-785140,Aguadilla-Hernández.AP-CGAS Borinquen,TMY3,18.5,-67.133,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/AL_Aguadilla/PRI_AL_Aguadilla-Hernandez.AP-CGAS.Borinquen.785140_TMY3.zip,onebuilding
+785140,Aguadilla-Hernï¿½ndez.AP-CGAS Borinquen,TMY3,18.5,-67.133,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/AL_Aguadilla/PRI_AL_Aguadilla-Hernandez.AP-CGAS.Borinquen.785140_TMY3.zip,onebuilding
 785140,Aguadilla Hernandez AP,ISD-TMYx,18.5,-67.133,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/AL_Aguadilla/PRI_AL_Aguadilla-Hernandez.AP.785140_TMYx.2003-2017.zip,onebuilding
 785140,Aguadilla Hernandez AP,ISD-TMYx,18.5,-67.133,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/AL_Aguadilla/PRI_AL_Aguadilla-Hernandez.AP.785140_TMYx.zip,onebuilding
 785350,Aguas Claras-NS Roosevelt Roads,TMY3,18.25,-65.633,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CB_Ceiba/PRI_CB_Aguas.Claras-NS.Roosevelt.Roads.785350_TMY3.zip,onebuilding
 785350,Ceiba Aponte De La Torre AP,ISD-TMYx,18.255,-65.641,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CB_Ceiba/PRI_CB_Ceiba-Aponte-De.La.Torre.AP.785350_TMYx.2003-2017.zip,onebuilding
 785350,Ceiba Aponte De La Torre AP,ISD-TMYx,18.255,-65.641,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CB_Ceiba/PRI_CB_Ceiba-Aponte-De.La.Torre.AP.785350_TMYx.zip,onebuilding
-785260,San Juan-Marín Intl AP,TMY3,18.417,-66.0,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CN_Carolina/PRI_CN_San.Juan-Marin.Intl.AP.785260_TMY3.zip,onebuilding
+785260,San Juan-Marï¿½n Intl AP,TMY3,18.417,-66.0,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CN_Carolina/PRI_CN_San.Juan-Marin.Intl.AP.785260_TMY3.zip,onebuilding
 785260,San Juan Marin Intl AP,ISD-TMYx,18.433,-66.011,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CN_Carolina/PRI_CN_San.Juan-Marin.Intl.AP.785260_TMYx.zip,onebuilding
-785263,San Juan-Marín Intl AP,TMY3,18.433,-66.0,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CN_Carolina/PRI_CN_San.Juan-Marin.Intl.AP.785263_TMY3.zip,onebuilding
+785263,San Juan-Marï¿½n Intl AP,TMY3,18.433,-66.0,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CN_Carolina/PRI_CN_San.Juan-Marin.Intl.AP.785263_TMY3.zip,onebuilding
 785260,San Juan Marin Intl AP,ISD-TMYx,18.433,-66.011,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/CN_Carolina/PRI_CN_San.Juan-Marin.Intl.AP.785260_TMYx.2003-2017.zip,onebuilding
 998247,Fajardo,ISD-TMYx,18.333,-65.633,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/FJ_Fajardo/PRI_FJ_Fajardo.998247_TMYx.2003-2017.zip,onebuilding
 998247,Fajardo,ISD-TMYx,18.333,-65.633,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/FJ_Fajardo/PRI_FJ_Fajardo.998247_TMYx.zip,onebuilding
 997350,Maguesyes Islands,ISD-TMYx,17.97,-67.05,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/LJ_Lajas/PRI_LJ_Maguesyes.Islands.997350_TMYx.2003-2017.zip,onebuilding
 997350,Maguesyes Islands,ISD-TMYx,17.97,-67.05,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/LJ_Lajas/PRI_LJ_Maguesyes.Islands.997350_TMYx.zip,onebuilding
-785145,Mayagüez-de Hostos AP,TMY3,18.25,-67.15,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/MG_Mayaguez/PRI_MG_Mayaguez-de.Hostos.AP.785145_TMY3.zip,onebuilding
+785145,Mayagï¿½ez-de Hostos AP,TMY3,18.25,-67.15,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/MG_Mayaguez/PRI_MG_Mayaguez-de.Hostos.AP.785145_TMY3.zip,onebuilding
 998248,Mayaguez,ISD-TMYx,18.217,-67.15,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/MG_Mayaguez/PRI_MG_Mayaguez.998248_TMYx.2003-2017.zip,onebuilding
 998304,Mona Island Mona AP,ISD-TMYx,18.076,-67.929,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/MG_Mayaguez/PRI_MG_Mona.Island-Mona.AP.998304_TMYx.2003-2017.zip,onebuilding
 785145,Mayaguez De Hostos AP,ISD-TMYx,18.25,-67.15,/WMO_Region_4_North_and_Central_America/PRI_Puerto_Rico/MG_Mayaguez/PRI_MG_Mayaguez-De.Hostos.AP.785145_TMYx.2003-2017.zip,onebuilding
@@ -12698,34 +12698,34 @@ C00014,Climate Zone 14,CTZRV2,35.7,-117.7,/WMO_Region_4_North_and_Central_Americ
 103790,Potsdam,BBSR,52.383,13.066,/WMO_Region_6_Europe/DEU_Germany/BB_Brandenburg/DEU_BB_Potsdam_103790_TRY2035_04_Wint_BBSR.zip,onebuilding
 107290,Mannheim,BBSR,49.52,8.55,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.zip,onebuilding
 107290,Mannheim,BBSR,49.52,8.55,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Mannheim_107290_TRY2035_12_Somm_BBSR.zip,onebuilding
-108360,Stötten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2010_14_Wint_BBSR.zip,onebuilding
+108360,Stï¿½tten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2010_14_Wint_BBSR.zip,onebuilding
 107290,Mannheim,BBSR,49.52,8.55,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Mannheim_107290_TRY2010_12_Somm_BBSR.zip,onebuilding
 107290,Mannheim,BBSR,49.52,8.55,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Mannheim_107290_TRY2035_12_Wint_BBSR.zip,onebuilding
-108360,Stötten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2035_14_Jahr_BBSR.zip,onebuilding
+108360,Stï¿½tten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2035_14_Jahr_BBSR.zip,onebuilding
 107290,Mannheim,BBSR,49.52,8.55,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Mannheim_107290_TRY2010_12_Wint_BBSR.zip,onebuilding
-108360,Stötten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2010_14_Jahr_BBSR.zip,onebuilding
-108360,Stötten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2035_14_Somm_BBSR.zip,onebuilding
+108360,Stï¿½tten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2010_14_Jahr_BBSR.zip,onebuilding
+108360,Stï¿½tten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2035_14_Somm_BBSR.zip,onebuilding
 107290,Mannheim,BBSR,49.52,8.55,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Mannheim_107290_TRY2035_12_Jahr_BBSR.zip,onebuilding
-108360,Stötten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2010_14_Somm_BBSR.zip,onebuilding
-108360,Stötten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2035_14_Wint_BBSR.zip,onebuilding
+108360,Stï¿½tten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2010_14_Somm_BBSR.zip,onebuilding
+108360,Stï¿½tten-Geislingen an der Steige,BBSR,48.66,9.86,/WMO_Region_6_Europe/DEU_Germany/BW_Baden-Wurttemberg/DEU_BW_Stotten-Geislingen.an.der.Steige_108360_TRY2035_14_Wint_BBSR.zip,onebuilding
 109630,Garmisch-Partenkirchen,BBSR,47.48,11.06,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Garmisch-Partenkirchen_109630_TRY2010_15_Jahr_BBSR.zip,onebuilding
 106850,Hof,BBSR,50.32,11.88,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Hof_106850_TRY2010_10_Jahr_BBSR.zip,onebuilding
-108750,Mühldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2010_13_Jahr_BBSR.zip,onebuilding
+108750,Mï¿½hldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2010_13_Jahr_BBSR.zip,onebuilding
 109630,Garmisch-Partenkirchen,BBSR,47.48,11.06,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Garmisch-Partenkirchen_109630_TRY2010_15_Somm_BBSR.zip,onebuilding
 106850,Hof,BBSR,50.32,11.88,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Hof_106850_TRY2010_10_Somm_BBSR.zip,onebuilding
-108750,Mühldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2010_13_Somm_BBSR.zip,onebuilding
+108750,Mï¿½hldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2010_13_Somm_BBSR.zip,onebuilding
 109630,Garmisch-Partenkirchen,BBSR,47.48,11.06,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Garmisch-Partenkirchen_109630_TRY2010_15_Wint_BBSR.zip,onebuilding
 106850,Hof,BBSR,50.32,11.88,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Hof_106850_TRY2010_10_Wint_BBSR.zip,onebuilding
-108750,Mühldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2010_13_Wint_BBSR.zip,onebuilding
+108750,Mï¿½hldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2010_13_Wint_BBSR.zip,onebuilding
 109630,Garmisch-Partenkirchen,BBSR,47.48,11.06,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Garmisch-Partenkirchen_109630_TRY2035_15_Jahr_BBSR.zip,onebuilding
 106850,Hof,BBSR,50.32,11.88,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Hof_106850_TRY2035_10_Jahr_BBSR.zip,onebuilding
-108750,Mühldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2035_13_Jahr_BBSR.zip,onebuilding
+108750,Mï¿½hldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2035_13_Jahr_BBSR.zip,onebuilding
 109630,Garmisch-Partenkirchen,BBSR,47.48,11.06,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Garmisch-Partenkirchen_109630_TRY2035_15_Somm_BBSR.zip,onebuilding
 106850,Hof,BBSR,50.32,11.88,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Hof_106850_TRY2035_10_Somm_BBSR.zip,onebuilding
-108750,Mühldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2035_13_Somm_BBSR.zip,onebuilding
+108750,Mï¿½hldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2035_13_Somm_BBSR.zip,onebuilding
 109630,Garmisch-Partenkirchen,BBSR,47.48,11.06,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Garmisch-Partenkirchen_109630_TRY2035_15_Wint_BBSR.zip,onebuilding
 106850,Hof,BBSR,50.32,11.88,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Hof_106850_TRY2035_10_Wint_BBSR.zip,onebuilding
-108750,Mühldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2035_13_Wint_BBSR.zip,onebuilding
+108750,Mï¿½hldorf am Inn,BBSR,48.28,12.5,/WMO_Region_6_Europe/DEU_Germany/BY_Bayern/DEU_BY_Muhldorf.am.Inn_108750_TRY2035_13_Wint_BBSR.zip,onebuilding
 101290,Bremerhaven,BBSR,53.533,8.583,/WMO_Region_6_Europe/DEU_Germany/HB_Bremen/DEU_HB_Bremerhaven_101290_TRY2010_01_Jahr_BBSR.zip,onebuilding
 101290,Bremerhaven,BBSR,53.533,8.583,/WMO_Region_6_Europe/DEU_Germany/HB_Bremen/DEU_HB_Bremerhaven_101290_TRY2010_01_Wint_BBSR.zip,onebuilding
 101290,Bremerhaven,BBSR,53.533,8.583,/WMO_Region_6_Europe/DEU_Germany/HB_Bremen/DEU_HB_Bremerhaven_101290_TRY2035_01_Somm_BBSR.zip,onebuilding
@@ -12738,18 +12738,18 @@ C00014,Climate Zone 14,CTZRV2,35.7,-117.7,/WMO_Region_4_North_and_Central_Americ
 104380,Kassel,BBSR,51.3,9.45,/WMO_Region_6_Europe/DEU_Germany/HE_Hessen/DEU_HE_Kassel_104380_TRY2010_07_Somm_BBSR.zip,onebuilding
 104380,Kassel,BBSR,51.3,9.45,/WMO_Region_6_Europe/DEU_Germany/HE_Hessen/DEU_HE_Kassel_104380_TRY2035_07_Jahr_BBSR.zip,onebuilding
 104380,Kassel,BBSR,51.3,9.45,/WMO_Region_6_Europe/DEU_Germany/HE_Hessen/DEU_HE_Kassel_104380_TRY2035_07_Wint_BBSR.zip,onebuilding
-101470,Hamburg-Fuhlsbüttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2010_03_Jahr_BBSR.zip,onebuilding
-101470,Hamburg-Fuhlsbüttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2010_03_Wint_BBSR.zip,onebuilding
-101470,Hamburg-Fuhlsbüttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2035_03_Somm_BBSR.zip,onebuilding
-101470,Hamburg-Fuhlsbüttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2010_03_Somm_BBSR.zip,onebuilding
-101470,Hamburg-Fuhlsbüttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2035_03_Jahr_BBSR.zip,onebuilding
-101470,Hamburg-Fuhlsbüttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2035_03_Wint_BBSR.zip,onebuilding
-101700,Rostock-Warnemünde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2010_02_Jahr_BBSR.zip,onebuilding
-101700,Rostock-Warnemünde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2010_02_Wint_BBSR.zip,onebuilding
-101700,Rostock-Warnemünde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2035_02_Somm_BBSR.zip,onebuilding
-101700,Rostock-Warnemünde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2010_02_Somm_BBSR.zip,onebuilding
-101700,Rostock-Warnemünde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2035_02_Jahr_BBSR.zip,onebuilding
-101700,Rostock-Warnemünde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2035_02_Wint_BBSR.zip,onebuilding
+101470,Hamburg-Fuhlsbï¿½ttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2010_03_Jahr_BBSR.zip,onebuilding
+101470,Hamburg-Fuhlsbï¿½ttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2010_03_Wint_BBSR.zip,onebuilding
+101470,Hamburg-Fuhlsbï¿½ttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2035_03_Somm_BBSR.zip,onebuilding
+101470,Hamburg-Fuhlsbï¿½ttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2010_03_Somm_BBSR.zip,onebuilding
+101470,Hamburg-Fuhlsbï¿½ttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2035_03_Jahr_BBSR.zip,onebuilding
+101470,Hamburg-Fuhlsbï¿½ttel,BBSR,53.633,10.0,/WMO_Region_6_Europe/DEU_Germany/HH_Hamburg/DEU_HH_Hamburg-Fuhlsbuttel_101470_TRY2035_03_Wint_BBSR.zip,onebuilding
+101700,Rostock-Warnemï¿½nde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2010_02_Jahr_BBSR.zip,onebuilding
+101700,Rostock-Warnemï¿½nde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2010_02_Wint_BBSR.zip,onebuilding
+101700,Rostock-Warnemï¿½nde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2035_02_Somm_BBSR.zip,onebuilding
+101700,Rostock-Warnemï¿½nde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2010_02_Somm_BBSR.zip,onebuilding
+101700,Rostock-Warnemï¿½nde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2035_02_Jahr_BBSR.zip,onebuilding
+101700,Rostock-Warnemï¿½nde,BBSR,54.183,12.083,/WMO_Region_6_Europe/DEU_Germany/MV_Mecklenburg-Vorpommern/DEU_MV_Rostock-Warnemunde_101700_TRY2035_02_Wint_BBSR.zip,onebuilding
 104520,Braunlage,BBSR,51.73,10.6,/WMO_Region_6_Europe/DEU_Germany/NI_Niedersachsen/DEU_NI_Braunlage_104520_TRY2010_08_Jahr_BBSR.zip,onebuilding
 104520,Braunlage,BBSR,51.73,10.6,/WMO_Region_6_Europe/DEU_Germany/NI_Niedersachsen/DEU_NI_Braunlage_104520_TRY2010_08_Wint_BBSR.zip,onebuilding
 104520,Braunlage,BBSR,51.73,10.6,/WMO_Region_6_Europe/DEU_Germany/NI_Niedersachsen/DEU_NI_Braunlage_104520_TRY2035_08_Somm_BBSR.zip,onebuilding
@@ -14409,3 +14409,344 @@ C00014,Climate Zone 14,CTZRV2,35.7,-117.7,/WMO_Region_4_North_and_Central_Americ
 949970,Heard Island The Spit,ISD-TMYx,-53.108,73.723,/WMO_Region_7_Antarctica/HMD_Heard_and_McDonald_Islands/AUS_HMD_Heard.Island.The.Spit.949970_TMYx.2003-2017.zip,onebuilding
 949970,Heard Island The Spit,ISD-TMYx,-53.108,73.723,/WMO_Region_7_Antarctica/HMD_Heard_and_McDonald_Islands/AUS_HMD_Heard.Island.The.Spit.949970_TMYx.zip,onebuilding
 959970,Heard Island Atlas Cove Stn,ISD-TMYx,-53.109,73.392,/WMO_Region_7_Antarctica/HMD_Heard_and_McDonald_Islands/AUS_HMD_Heard.Island.Atlas.Cove.Stn.959970_TMYx.zip,onebuilding
+-,Kabul,MN6,34.55,69.217,/AFG_Kabul_MN6.zip,MN6
+-,Hato-Curacao_Intl_AP,MN6,12.2,-68.967,/ANT_Hato-Curacao_Intl_AP_MN6.zip,MN6
+-,Reina_Beatrix_Intl_AP-Aruba,MN6,12.5,-70.01,/ANT_Reina_Beatrix_Intl_AP-Aruba_MN6.zip,MN6
+-,Al_Ain_Intl_AP,MN6,24.25,55.6,/ARE_Al_Ain_Intl_AP_MN6.zip,MN6
+-,Dubai_Intl_AP,MN6,25.25,55.333,/ARE_Dubai_Intl_AP_MN6.zip,MN6
+-,La_Plata_MODIFIED,MN6,-34.97,-57.9,/ARG_La_Plata_MODIFIED_MN6.zip,MN6
+-,Bariloche,MN6,-41.15,-71.167,/ARG_Bariloche_MN6.zip,MN6
+-,La_Plata,MN6,-34.97,-57.9,/ARG_La_Plata_MN6.zip,MN6
+-,Mendoza_AP,MN6,-32.833,-68.783,/ARG_Mendoza_AP_MN6.zip,MN6
+-,Mendoza,MN6,-32.7,-68,/ARG_Mendoza_MN6.zip,MN6
+-,Rosario,MN6,-32.917,-60.783,/ARG_Rosario_MN6.zip,MN6
+-,Talpalque,MN6,-36.35,-60,/ARG_Talpalque_MN6.zip,MN6
+-,McMurdo_Station,MN6,-77.85,166.6667,/ATA_McMurdo_Station_MN6.zip,MN6
+-,Showa_Station,MN6,-69,39.583,/ATA_Showa_Station_MN6.zip,MN6
+-,Kramsach,MN6,47.442,11.876,/AUT_Kramsach_MN6.zip,MN6
+-,Baku_Observatory,MN6,40.38,49.85,/AZE_Baku_Observatory_MN6.zip,MN6
+-,Auvelais-Sambreville,MN6,50.43,4.63,/BEL_Auvelais-Sambreville_MN6.zip,MN6
+-,Belene,MN6,43.65,25.117,/BGR_Belene_MN6.zip,MN6
+-,Bahrain_Intl_AP,MN6,26.27,50.65,/BHR_Bahrain_Intl_AP_MN6.zip,MN6
+-,Freeport_Intl_AP,MN6,26.55,-78.7,/BHS_Freeport_Intl_AP_MN6.zip,MN6
+-,Nassau_Intl_AP,MN6,25.05,-77.467,/BHS_Nassau_Intl_AP_MN6.zip,MN6
+-,Bermuda_Intl_AP,MN6,32.36,-64.68,/BMU_Bermuda_Intl_AP_MN6.zip,MN6
+-,MA_Sao_Luis-Marechal,MN6,-2.6,-44.23,/BRA_MA_Sao_Luis-Marechal_MN6.zip,MN6
+-,RJ_Niteroi,MN6,-22.883,-43.104,/BRA_RJ_Niteroi_MN6.zip,MN6
+-,RJ_Porto_Real,MN6,-22.42,-44.29,/BRA_RJ_Porto_Real_MN6.zip,MN6
+-,RS_Erechim,MN6,-27.634,-52.274,/BRA_RS_Erechim_MN6.zip,MN6
+-,RS_Porto_Alegre,MN6,-30.017,-51.217,/BRA_RS_Porto_Alegre_MN6.zip,MN6
+-,SP_Campinas-Varicopos,MN6,-23,-47.13,/BRA_SP_Campinas-Varicopos_MN6.zip,MN6
+-,SP_Santos,MN6,-23.84,-46.37,/BRA_SP_Santos_MN6.zip,MN6
+-,SP_Sao_Carlos,MN6,-22.017,-47.883,/BRA_SP_Sao_Carlos_MN6.zip,MN6
+-,Thimphu,MN6,27.47,89.6417,/BTN_Thimphu_MN6.zip,MN6
+-,ON_Hamilton_AP,MN6,43.167,-79.933,/CAN_ON_Hamilton_AP_MN6.zip,MN6
+-,Bern-Liebefeld,MN6,46.928,7.42,/CHE_Bern-Liebefeld_MN6.zip,MN6
+-,Copiapo_Chamonate,MN6,-27.3,-70.417,/CHL_Copiapo_Chamonate_MN6.zip,MN6
+-,Santiago,MN6,-33.383,-70.783,/CHL_Santiago_MN6.zip,MN6
+-,Temuco-Maquehue,MN6,-38.75,-72.633,/CHL_Temuco-Maquehue_MN6.zip,MN6
+-,Valparaiso-El_Bellot,MN6,-33.05,-71.35,/CHL_Valparaiso-El_Bellot_MN6.zip,MN6
+-,Dali,MN6,25.7,100.18,/CHN_Dali_MN6.zip,MN6
+-,Dongguan,MN6,22.836,113.801,/CHN_Dongguan_MN6.zip,MN6
+-,Kangding-Dardo,MN6,30.05,101.96,/CHN_Kangding-Dardo_MN6.zip,MN6
+-,Ningbo,MN6,29.88,121.55,/CHN_Ningbo_MN6.zip,MN6
+-,Panzhihua,MN6,26.55,101.73,/CHN_Panzhihua_MN6.zip,MN6
+-,Pingwu,MN6,32.41,104.51,/CHN_Pingwu_MN6.zip,MN6
+-,Suzhou_Jiangsu,MN6,31.3,120.62,/CHN_Suzhou_Jiangsu_MN6.zip,MN6
+-,Wuxi_Jiangsu,MN6,31.58,120.3,/CHN_Wuxi_Jiangsu_MN6.zip,MN6
+-,Zhengzhou_Henan,MN6,34.717,113.65,/CHN_Zhengzhou_Henan_MN6.zip,MN6
+-,Zhongshan_Guangdong,MN6,22.496,113.393,/CHN_Zhongshan_Guangdong_MN6.zip,MN6
+-,Barrancabermeja-Yari,MN6,7.017,-73.8,/COL_Barrancabermeja-Yari_MN6.zip,MN6
+-,Barranquilla,MN6,11,-74.83,/COL_Barranquilla_MN6.zip,MN6
+-,Cali-Alfonso_Bonill-Valle,MN6,3.55,-76.383,/COL_Cali-Alfonso_Bonill-Valle_MN6.zip,MN6
+-,Cali-Valle,MN6,3.421,-76.522,/COL_Cali-Valle_MN6.zip,MN6
+-,Cartagena-Rafael_Nunez_AP,MN6,10.45,-75.517,/COL_Cartagena-Rafael_Nunez_AP_MN6.zip,MN6
+-,Guasca,MN6,4.866,-73.876,/COL_Guasca_MN6.zip,MN6
+-,Medellin,MN6,6.251,-75.576,/COL_Medellin_MN6.zip,MN6
+-,Pitalito_Huilia,MN6,1.867,-76.03,/COL_Pitalito_Huilia_MN6.zip,MN6
+-,Riohacha,MN6,11.55,-72.9,/COL_Riohacha_MN6.zip,MN6
+-,Villa_de_Leyva,MN6,5.63,-73.52,/COL_Villa_de_Leyva_MN6.zip,MN6
+-,Paraiso_Guanacaste,MN6,10.19,-85.787,/CRI_Paraiso_Guanacaste_MN6.zip,MN6
+-,Puntarenas,MN6,9.97,-84.833,/CRI_Puntarenas_MN6.zip,MN6
+-,San_Jose,MN6,9.98,-84.07,/CRI_San_Jose_MN6.zip,MN6
+-,Luebeck,MN6,53.87,10.67,/DEU_Luebeck_MN6.zip,MN6
+-,Rostock-Warnemunde,MN6,54.18,12.083,/DEU_Rostock-Warnemunde_MN6.zip,MN6
+-,Tramm,MN6,53.521,11.649,/DEU_Tramm_MN6.zip,MN6
+-,Santo_Domingo,MN6,18.48,-69.917,/DOM_Santo_Domingo_MN6.zip,MN6
+-,Guyaquil_AP,MN6,-2.15,-79.883,/ECU_Guyaquil_AP_MN6.zip,MN6
+-,Tena_original,MN6,-1.092,-77.5,/ECU_Tena_original.zip,MN6
+-,Almeria_AP,MN6,36.85,-2.383,/ESP_Almeria_AP_MN6.zip,MN6
+-,Arnedo,MN6,42.228,-2.101,/ESP_Arnedo_MN6.zip,MN6
+-,Barcelona-Sabadell,MN6,41.55,2.1,/ESP_Barcelona-Sabadell_MN6.zip,MN6
+-,Barcelona,MN6,41.283,2.067,/ESP_Barcelona_MN6.zip,MN6
+-,Bilbao-Sondica,MN6,43.3,-2.93,/ESP_Bilbao-Sondica_MN6.zip,MN6
+-,Burgos,MN6,42.367,-3.633,/ESP_Burgos_MN6.zip,MN6
+-,Cerdanyola,MN6,41.5,2.12,/ESP_Cerdanyola_MN6.zip,MN6
+-,Deltebre,MN6,40.72,0.7,/ESP_Deltebre_MN6.zip,MN6
+-,Gijon,MN6,43.538,-5.642,/ESP_Gijon_MN6.zip,MN6
+-,La_Molina,MN6,42.344,1.957,/ESP_La_Molina_MN6.zip,MN6
+-,Las_Palmas-Canarias,MN6,28.1,-15.43,/ESP_Las_Palmas-Canarias_MN6.zip,MN6
+-,Lerida,MN6,41.6,0.6,/ESP_Lerida_MN6.zip,MN6
+-,Malaga,MN6,36.667,-4.483,/ESP_Malaga_MN6.zip,MN6
+-,Palamos_Girona,MN6,41.85,3.13,/ESP_Palamos_Girona_MN6.zip,MN6
+-,Ponferrada_Leon,MN6,42.53,-6.58,/ESP_Ponferrada_Leon_MN6.zip,MN6
+-,Roses,MN6,42.263,3.175,/ESP_Roses_MN6.zip,MN6
+-,Santa_Maria_de_Olot-Manresa,MN6,41.867,2.033,/ESP_Santa_Maria_de_Olot-Manresa_MN6.zip,MN6
+-,Ubrique_Cadiz,MN6,36.666,-5.466,/ESP_Ubrique_Cadiz_MN6.zip,MN6
+-,Pjarnu,MN6,58.38,24.5,/EST_Pjarnu_MN6.zip,MN6
+-,Alencon_Valframbert,MN6,48.45,0.11,/FRA_Alencon_Valframbert_MN6.zip,MN6
+-,Argentan,MN6,48.745,-0.019,/FRA_Argentan_MN6.zip,MN6
+-,Bastia-Poretta_Corsica,MN6,42.55,9.48,/FRA_Bastia-Poretta_Corsica_MN6.zip,MN6
+-,Caen,MN6,49.183,-0.467,/FRA_Caen_MN6.zip,MN6
+-,Croquie,MN6,42.868,1.66,/FRA_Croquie_MN6.zip,MN6
+-,Loudenvielle,MN6,42.8,-0.4119,/FRA_Loudenvielle_MN6.zip,MN6
+-,Paris-Montsouris,MN6,48.817,2.333,/FRA_Paris-Montsouris_MN6.zip,MN6
+-,Pau,MN6,43.37,-0.417,/FRA_Pau_MN6.zip,MN6
+-,Perpignan,MN6,42.733,2.867,/FRA_Perpignan_MN6.zip,MN6
+-,Poitiers_Biard,MN6,46.58,0.31,/FRA_Poitiers_Biard_MN6.zip,MN6
+-,Rouen_Boos,MN6,49.38,1.18,/FRA_Rouen_Boos_MN6.zip,MN6
+-,Rouen,MN6,49.43,1.08,/FRA_Rouen_MN6.zip,MN6
+-,Saint-Pierre-d&#39;Oleran,MN6,45.95,-1.31,/FRA_Saint-Pierre-d&#39;Oleran_MN6.zip,MN6
+-,Saint_Bres_Gard,MN6,44.278,4.198,/FRA_Saint_Bres_Gard_MN6.zip,MN6
+-,Saint_Girons,MN6,43,1.1,/FRA_Saint_Girons_MN6.zip,MN6
+-,Tarbes,MN6,43.23,-0.0667,/FRA_Tarbes_MN6.zip,MN6
+-,Thionville,MN6,49.37,6.13,/FRA_Thionville_MN6.zip,MN6
+-,Toulouse,MN6,43.633,1.367,/FRA_Toulouse_MN6.zip,MN6
+-,Vinon_sur_Verdon,MN6,43.733,5.782,/FRA_Vinon_sur_Verdon_MN6.zip,MN6
+-,Birmingham-Elmdon,MN6,52.45,-1.733,/GBR_Birmingham-Elmdon_MN6.zip,MN6
+-,Carlisle,MN6,54.93,-2.96,/GBR_Carlisle_MN6.zip,MN6
+-,Ebbw_Vale_Wales,MN6,51.781,-3.206,/GBR_Ebbw_Vale_Wales_MN6.zip,MN6
+-,Edinburgh-Turnhouse,MN6,55.95,-3.35,/GBR_Edinburgh-Turnhouse_MN6.zip,MN6
+-,Lincoln,MN6,53.23,-0.54,/GBR_Lincoln_MN6.zip,MN6
+-,Liverpool_AP,MN6,53.33,-2.85,/GBR_Liverpool_AP_MN6.zip,MN6
+-,Liverpool,MN6,53.42,-2.92,/GBR_Liverpool_MN6.zip,MN6
+-,Manchester-Ringway,MN6,53.35,-2.267,/GBR_Manchester-Ringway_MN6.zip,MN6
+-,Sheffield_South_Yorkshire,MN6,53.38,-1.5,/GBR_Sheffield_South_Yorkshire_MN6.zip,MN6
+-,SouthSomerset_MN51,MN6,50.95,-2.65,/GBR_SouthSomerset_MN51.zip,MN6
+-,Basse_Terre,MN6,16,-61.717,/GLP_Basse_Terre_MN6.zip,MN6
+-,Le_Raizet,MN6,16.267,-61.517,/GLP_Le_Raizet_MN6.zip,MN6
+-,Akoumia_Crete,MN6,35.164,24.583,/GRC_Akoumia_Crete_MN6.zip,MN6
+-,Arta,MN6,39.162,20.985,/GRC_Arta_MN6.zip,MN6
+-,Farrai,MN6,38.094,21.721,/GRC_Farrai_MN6.zip,MN6
+-,Florina,MN6,40.78,21.407,/GRC_Florina_MN6.zip,MN6
+-,Iraklion,MN6,35.33,25.183,/GRC_Iraklion_MN6.zip,MN6
+-,Kastoria_Airport,MN6,40.45,21.28,/GRC_Kastoria_Airport_MN6.zip,MN6
+-,Kerkyra,MN6,39.62,19.917,/GRC_Kerkyra_MN6.zip,MN6
+-,Kilkis,MN6,40.992,22.871,/GRC_Kilkis_MN6.zip,MN6
+-,Kozani,MN6,40.3,21.78,/GRC_Kozani_MN6.zip,MN6
+-,Limnos_Isl,MN6,39.917,25.233,/GRC_Limnos_Isl_MN6.zip,MN6
+-,Paros,MN6,37.119,25.183,/GRC_Paros_MN6.zip,MN6
+-,Patrai,MN6,38.25,21.733,/GRC_Patrai_MN6.zip,MN6
+-,Petres-Rethimnon_Crete,MN6,35.351,24.344,/GRC_Petres-Rethimnon_Crete_MN6.zip,MN6
+-,Rhodos,MN6,36.4,28.083,/GRC_Rhodos_MN6.zip,MN6
+-,Samos_AP,MN6,37.7,26.917,/GRC_Samos_AP_MN6.zip,MN6
+-,Souda-Khania,MN6,35.48,24.117,/GRC_Souda-Khania_MN6.zip,MN6
+-,Dubrovnik-Gorica,MN6,42.65,18.08,/HRV_Dubrovnik-Gorica_MN6.zip,MN6
+-,Dubrovnik-Lilipi,MN6,42.56,18.26,/HRV_Dubrovnik-Lilipi_MN6.zip,MN6
+-,Karlovac,MN6,45.5,15.55,/HRV_Karlovac_MN6.zip,MN6
+-,Rovinj,MN6,45.078,13.639,/HRV_Rovinj_MN6.zip,MN6
+-,Zadar-Zemunik,MN6,44.1,15.37,/HRV_Zadar-Zemunik_MN6.zip,MN6
+-,Zagreb-Pleso,MN6,45.73,16.06,/HRV_Zagreb-Pleso_MN6.zip,MN6
+-,Budapest-Ferihegy,MN6,47.43,19.26,/HUN_Budapest-Ferihegy_MN6.zip,MN6
+-,Budapest-Lorinc,MN6,47.433,19.183,/HUN_Budapest-Lorinc_MN6.zip,MN6
+-,Bandung,MN6,-6.95,107.57,/IDN_Bandung_MN6.zip,MN6
+-,Depok,MN6,-6.395,106.806,/IDN_Depok_MN6.zip,MN6
+-,DTM_Universitas_Indonesia,MN6,-6.363,106.824,/IDN_DTM_Universitas_Indonesia_MN6.zip,MN6
+-,Jakarta,MN6,-6.13,106.75,/IDN_Jakarta_MN6.zip,MN6
+-,Makassar,MN6,-5.13,119.49,/IDN_Makassar_MN6.zip,MN6
+-,Puncak-Bogor,MN6,-6.7,106.93,/IDN_Puncak-Bogor_MN6.zip,MN6
+-,Surakarta,MN6,-7.569,110.817,/IDN_Surakarta_MN6.zip,MN6
+-,Tangaray GCI,MN6,-6.298,106.668,/IDN_Tangaray GCI_MN6.zip,MN6
+-,Ahmedabad,MN6,23.07,72.633,/IND_Ahmedabad_MN6.zip,MN6
+-,Ajmer,MN6,26.48,74.67,/IND_Ajmer_MN6.zip,MN6
+-,Bhuj-Rudramata_AFB,MN6,23.25,69.66,/IND_Bhuj-Rudramata_AFB_MN6.zip,MN6
+-,Bidar,MN6,17.908,77.487,/IND_Bidar_MN6.zip,MN6
+-,Coimbatore,MN6,11.03,77.05,/IND_Coimbatore_MN6.zip,MN6
+-,Gurgaon,MN6,28.45,77.02,/IND_Gurgaon_MN6.zip,MN6
+-,Itanagar,MN6,27.1,93.62,/IND_Itanagar_MN6.zip,MN6
+-,Jamshedpur-Beldih_Golf_Course,MN6,22.81,86.18,/IND_Jamshedpur-Beldih_Golf_Course_MN6.zip,MN6
+-,Kochi,MN6,9.94,76.26,/IND_Kochi_MN6.zip,MN6
+-,Mysore,MN6,12.3,76.62,/IND_Mysore_MN6.zip,MN6
+-,Nalagrah,MN6,31.04,76.7186,/IND_Nalagrah_MN6.zip,MN6
+-,Rohtak,MN6,28.9,76.63,/IND_Rohtak_MN6.zip,MN6
+-,Salem,MN6,11.67,78.18,/IND_Salem_MN6.zip,MN6
+-,Srinagar,MN6,34.083,74.833,/IND_Srinagar_MN6.zip,MN6
+-,Uttarkhand,MN6,30.33,78.06,/IND_Uttarkhand_MN6.zip,MN6
+-,Shannon_AP,MN6,52.7,-8.917,/IRL_Shannon_AP_MN6.zip,MN6
+-,Bandar_Abbas,MN6,27.22,56.367,/IRN_Bandar_Abbas_MN6.zip,MN6
+-,Esfahan,MN6,32.62,51.667,/IRN_Esfahan_MN6.zip,MN6
+-,Hamedan_Nowjeh,MN6,35.2,48.683,/IRN_Hamedan_Nowjeh_MN6.zip,MN6
+-,Hashtgerd,MN6,35.99,50.66,/IRN_Hashtgerd_MN6.zip,MN6
+-,Karaj-Keshavarzi,MN6,35.8,50.97,/IRN_Karaj-Keshavarzi_MN6.zip,MN6
+-,Kerman,MN6,30.25,56.967,/IRN_Kerman_MN6.zip,MN6
+-,Oroomieh,MN6,37.53,45.083,/IRN_Oroomieh_MN6.zip,MN6
+-,Shahroud,MN6,36.42,55.033,/IRN_Shahroud_MN6.zip,MN6
+-,Shamsabad_Industrial_City,MN6,35.352,51.219,/IRN_Shamsabad_Industrial_City_MN6.zip,MN6
+-,Shiraz,MN6,29.55,52.6,/IRN_Shiraz_MN6.zip,MN6
+-,Tabriz,MN6,38.13,46.283,/IRN_Tabriz_MN6.zip,MN6
+-,Baghdad,MN6,33.33,44.43,/IRQ_Baghdad_MN6.zip,MN6
+-,Basra,MN6,30.5,47.83,/IRQ_Basra_MN6.zip,MN6
+-,Duhok_Dahuk,MN6,37.104,43.831,/IRQ_Duhok_Dahuk_MN6.zip,MN6
+-,Erbil,MN6,36.2,44.02,/IRQ_Erbil_MN6.zip,MN6
+-,Mosul,MN6,36.35,43.13,/IRQ_Mosul_MN6.zip,MN6
+-,Nassirya,MN6,31.08,46.23,/IRQ_Nassirya_MN6.zip,MN6
+-,Ashalim,MN6,30.965,34.702,/ISR_Ashalim_MN6.zip,MN6
+-,Beer-Sheva_Teyman,MN6,31.23,34.783,/ISR_Beer-Sheva_Teyman_MN6.zip,MN6
+-,Ben_Gurion_AP,MN6,32,34.9,/ISR_Ben_Gurion_AP_MN6.zip,MN6
+-,Eilat,MN6,29.55,34.95,/ISR_Eilat_MN6.zip,MN6
+-,Tel_Aviv-Yafo,MN6,32.08,34.77,/ISR_Tel_Aviv-Yafo_MN6.zip,MN6
+-,Andria,MN6,41.23,16.2917,/ITA_Andria_MN6.zip,MN6
+-,Aviano_AFB,MN6,46.03,12.6,/ITA_Aviano_AFB_MN6.zip,MN6
+-,LAquila,MN6,42.35,13.4,/ITA_LAquila_MN6.zip,MN6
+-,Montieri_Grosseto,MN6,43.132,11.018,/ITA_Montieri_Grosseto_MN6.zip,MN6
+-,Pesaro_Marche,MN6,43.91,12.913,/ITA_Pesaro_Marche_MN6.zip,MN6
+-,Rome,MN6,41.53,12.28,/ITA_Rome_MN6.zip,MN6
+-,Kingston,MN6,-999,-999,/JAM_Kingston_MN6.zip,MN6
+-,Amman_AP,MN6,31.98,35.983,/JOR_Amman_AP_MN6.zip,MN6
+-,Beppu,MN6,33.3,131.48,/JPN_Beppu_MN6.zip,MN6
+-,Naha_JASDF_Okinawa,MN6,26.18,127.65,/JPN_Naha_JASDF_Okinawa_MN6.zip,MN6
+-,Tokyo,MN6,35.683,139.767,/JPN_Tokyo_MN6.zip,MN6
+-,Yasumiya,MN6,40.427,140.897,/JPN_Yasumiya_MN6.zip,MN6
+-,Siem_Reap,MN6,13.367,103.85,/KHM_Siem_Reap_MN6.zip,MN6
+-,Busan,MN6,35.1,129.02,/KOR_Busan_MN6.zip,MN6
+-,Daegu,MN6,35.87,128.6,/KOR_Daegu_MN6.zip,MN6
+-,Daejeon,MN6,36.33,127.43,/KOR_Daejeon_MN6.zip,MN6
+-,Gimcheon,MN6,36.14,128.114,/KOR_Gimcheon_MN6.zip,MN6
+-,Pyeongtaek,MN6,36.95,127.03,/KOR_Pyeongtaek_MN6.zip,MN6
+-,Seokwoo-dong,MN6,37.388,127.235,/KOR_Seokwoo-dong_MN6.zip,MN6
+-,Seoul-Kimpo_Intl,MN6,37.55,126.8,/KOR_Seoul-Kimpo_Intl_MN6.zip,MN6
+-,Yeosu,MN6,34.73,127.733,/KOR_Yeosu_MN6.zip,MN6
+-,Yongin,MN6,37.25,127.202,/KOR_Yongin_MN6.zip,MN6
+-,Beirut,MN6,33.87,35.5,/LBN_Beirut_MN6.zip,MN6
+-,Riga,MN6,56.88,24.13,/LVA_Riga_MN6.zip,MN6
+-,Aguascalientes-Aguascalientes,MN6,21.88,-102.3,/MEX_Aguascalientes-Aguascalientes_MN6.zip,MN6
+-,Autlan_de_Navarro,MN6,19.764,-104.366,/MEX_Autlan_de_Navarro_MN6.zip,MN6
+-,Cancun_Intl_AP,MN6,21.03,-86.86,/MEX_Cancun_Intl_AP_MN6.zip,MN6
+-,Candelaria,MN6,18.186,-91.042,/MEX_Candelaria_MN6.zip,MN6
+-,Chetumal,MN6,18.5,-88.3,/MEX_Chetumal_MN6.zip,MN6
+-,Chihuahua_Intl_AP,MN6,28.7,-105.96,/MEX_Chihuahua_Intl_AP_MN6.zip,MN6
+-,Cointzio-Morelia,MN6,19.63,-101.25,/MEX_Cointzio-Morelia_MN6.zip,MN6
+-,Cuernavaca,MN6,18.91,-99.25,/MEX_Cuernavaca_MN6.zip,MN6
+-,Culiacan,MN6,24.83,-107.38,/MEX_Culiacan_MN6.zip,MN6
+-,Guadalajara,MN6,20.67,-103.33,/MEX_Guadalajara_MN6.zip,MN6
+-,Hermosillo,MN6,29.06,-110.96,/MEX_Hermosillo_MN6.zip,MN6
+-,Inst_Mexicano_Tecno-Cuernavaca,MN6,18.88,-99.16,/MEX_Inst_Mexicano_Tecno-Cuernavaca_MN6.zip,MN6
+-,Jonacatepec,MN6,18.663,-98.8,/MEX_Jonacatepec_MN6.zip,MN6
+-,Juarez,MN6,31.739,-106.483,/MEX_Juarez_MN6.zip,MN6
+-,Mazatlan,MN6,23.2,-106.417,/MEX_Mazatlan_MN6.zip,MN6
+-,Merida,MN6,20.98,-89.65,/MEX_Merida_MN6.zip,MN6
+-,Mexico_City-Juarez,MN6,19.43,-99.08,/MEX_Mexico_City-Juarez_MN6.zip,MN6
+-,Monterrey_Ciudad,MN6,25.87,-100.2,/MEX_Monterrey_Ciudad_MN6.zip,MN6
+-,Monterrey_Intl_AP,MN6,25.86,-100.23,/MEX_Monterrey_Intl_AP_MN6.zip,MN6
+-,Morelia,MN6,19.7,-101.183,/MEX_Morelia_MN6.zip,MN6
+-,Namiquipa,MN6,29.247,-107.411,/MEX_Namiquipa_MN6.zip,MN6
+-,Pachuca,MN6,20.13,-98.73,/MEX_Pachuca_MN6.zip,MN6
+-,Puebla,MN6,19.03,-98.2,/MEX_Puebla_MN6.zip,MN6
+-,Puerto_Escondido,MN6,25.953,-110.347,/MEX_Puerto_Escondido_MN6.zip,MN6
+-,QR_Los_Divorciados,MN6,19.07,-88.45,/MEX_QR_Los_Divorciados_MN6.zip,MN6
+-,San_Jose_del_Cabo,MN6,23.15,-109.7,/MEX_San_Jose_del_Cabo_MN6.zip,MN6
+-,San_Juanito,MN6,27.97,-107.6,/MEX_San_Juanito_MN6.zip,MN6
+-,San_Luis_Potosi,MN6,22.15,-100.98,/MEX_San_Luis_Potosi_MN6.zip,MN6
+-,Santiago_de_Queretaro,MN6,20.58,-100.38,/MEX_Santiago_de_Queretaro_MN6.zip,MN6
+-,Silao,MN6,20.94,-101.42,/MEX_Silao_MN6.zip,MN6
+-,Tlalnepantla_DF,MN6,19.546,-99.189,/MEX_Tlalnepantla_DF_MN6.zip,MN6
+-,Tlalnpan_DF,MN6,19.295,-99.175,/MEX_Tlalnpan_DF_MN6.zip,MN6
+-,Tlaxcala,MN6,19.31,-98.239,/MEX_Tlaxcala_MN6.zip,MN6
+-,Torreon_AP,MN6,25.53,-103.45,/MEX_Torreon_AP_MN6.zip,MN6
+-,Tuxpan,MN6,20.95,-97.4,/MEX_Tuxpan_MN6.zip,MN6
+-,Valle_de_Bravo,MN6,19.183,-100.133,/MEX_Valle_de_Bravo_MN6.zip,MN6
+-,Xalapa_Enriquez-Veracruz,MN6,19.54,-96.55,/MEX_Xalapa_Enriquez-Veracruz_MN6.zip,MN6
+-,Zacatecas,MN6,22.78,-102.567,/MEX_Zacatecas_MN6.zip,MN6
+-,Luqa-Qrendi,MN6,35.83,14.433,/MLT_Luqa-Qrendi_MN6.zip,MN6
+-,Marsaxlokk,MN6,35.834,14.544,/MLT_Marsaxlokk_MN6.zip,MN6
+-,Mandalay,MN6,21.98,96.1,/MMR_Mandalay_MN6.zip,MN6
+-,Yangon_Intl_AP,MN6,16.9,96.133,/MMR_Yangon_Intl_AP_MN6.zip,MN6
+-,Tivat,MN6,42.4,18.73,/MNE_Tivat_MN6.zip,MN6
+-,Zagora,MN6,42.3,18.7389,/MNE_Zagora_MN6.zip,MN6
+-,Johore_Bharu,MN6,1.48,103.73,/MYS_Johore_Bharu_MN6.zip,MN6
+-,Kota_Kinabalu,MN6,5.979,116.115,/MYS_Kota_Kinabalu_MN6.zip,MN6
+-,Noumea,MN6,-22.283,166.45,/NCL_Noumea_MN6.zip,MN6
+-,Arnhelm,MN6,51.983,5.917,/NLD_Arnhelm_MN6.zip,MN6
+-,Zwolle,MN6,52.517,6.1,/NLD_Zwolle_MN6.zip,MN6
+-,Muscat,MN6,23.613,58.593,/OMN_Muscat_MN6.zip,MN6
+-,Sohar,MN6,23.85,57.433,/OMN_Sohar_MN6.zip,MN6
+-,Hyderabad_AP,MN6,17.45,78.467,/PAK_Hyderabad_AP_MN6.zip,MN6
+-,Islamabad,MN6,33.62,73.1,/PAK_Islamabad_MN6.zip,MN6
+-,Lahore,MN6,31.51,74.4,/PAK_Lahore_MN6.zip,MN6
+-,Panama,MN6,8.98,-79.5,/PAN_Panama_MN6.zip,MN6
+-,Baguio-Luzon_Island,MN6,16.41,120.6,/PHL_Baguio-Luzon_Island_MN6.zip,MN6
+-,Tagaytay,MN6,14.11,120.939,/PHL_Tagaytay_MN6.zip,MN6
+-,Agueda,MN6,40.57,-8.4333,/PRT_Agueda_MN6.zip,MN6
+-,Arouca,MN6,40.91,8.26,/PRT_Arouca_MN6.zip,MN6
+-,Aveiro,MN6,40.641,8.654,/PRT_Aveiro_MN6.zip,MN6
+-,Braga,MN6,41.58,-8.4167,/PRT_Braga_MN6.zip,MN6
+-,Cantenhede,MN6,40.35,-8.66,/PRT_Cantenhede_MN6.zip,MN6
+-,Castelo_Branco,MN6,39.83,-7.48,/PRT_Castelo_Branco_MN6.zip,MN6
+-,Castelo_de_Paivas,MN6,41.04,-8.26,/PRT_Castelo_de_Paivas_MN6.zip,MN6
+-,Celorico_de_Basto,MN6,41.38,-8,/PRT_Celorico_de_Basto_MN6.zip,MN6
+-,Covilha,MN6,40.26,-7.62,/PRT_Covilha_MN6.zip,MN6
+-,Guarda,MN6,40.55,-7.26,/PRT_Guarda_MN6.zip,MN6
+-,Guimaraes,MN6,41.44,-8.33,/PRT_Guimaraes_MN6.zip,MN6
+-,Lourinha,MN6,39.24,-9.3123,/PRT_Lourinha_MN6.zip,MN6
+-,Oleiros,MN6,39.95,-7.86,/PRT_Oleiros_MN6.zip,MN6
+-,Oliveira_do_Bairro,MN6,40.51,-8.55,/PRT_Oliveira_do_Bairro_MN6.zip,MN6
+-,Pampilhosa_da_Serra,MN6,40.09,-7.91,/PRT_Pampilhosa_da_Serra_MN6.zip,MN6
+-,Penacova,MN6,40.26,-8.26,/PRT_Penacova_MN6.zip,MN6
+-,Santa_Maria_da_Feira,MN6,40.96,-8.53,/PRT_Santa_Maria_da_Feira_MN6.zip,MN6
+-,Santana_Madeira-Islands,MN6,32.8,-16.8824,/PRT_Santana_Madeira-Islands_MN6.zip,MN6
+-,Setubal,MN6,38.53,-8.9,/PRT_Setubal_MN6.zip,MN6
+-,Sines,MN6,38.05,-8.78,/PRT_Sines_MN6.zip,MN6
+-,Tabua,MN6,40.35,-8.03,/PRT_Tabua_MN6.zip,MN6
+-,Vale_de_Cambra,MN6,40.5,-8.23,/PRT_Vale_de_Cambra_MN6.zip,MN6
+-,Vila_Nova_de_Famalicao,MN6,41.42,-8.5308,/PRT_Vila_Nova_de_Famalicao_MN6.zip,MN6
+-,Vila_Vicosa_Evora,MN6,38.77,7.4167,/PRT_Vila_Vicosa_Evora_MN6.zip,MN6
+-,Vlana_do_Castelo,MN6,41.68,-8.8333,/PRT_Vlana_do_Castelo_MN6.zip,MN6
+-,Jericho,MN6,31.87,35.45,/PSE_Jericho_MN6.zip,MN6
+-,Doha_Intl_AP,MN6,25.25,51.567,/QAT_Doha_Intl_AP_MN6.zip,MN6
+-,Dammam,MN6,26.42,50.1,/SAU_Dammam_MN6.zip,MN6
+-,Gizan,MN6,16.9,42.58,/SAU_Gizan_MN6.zip,MN6
+-,Jeddah,MN6,21.5,39.17,/SAU_Jeddah_MN6.zip,MN6
+-,Khamis_Mushait_AFB,MN6,18.3,42.8,/SAU_Khamis_Mushait_AFB_MN6.zip,MN6
+-,Mena,MN6,21.415,39.882,/SAU_Mena_MN6.zip,MN6
+-,Tabuk_AFB,MN6,28.36,36.63,/SAU_Tabuk_AFB_MN6.zip,MN6
+-,San_Salvador_UES,MN6,13.72,-89.2,/SLV_San_Salvador_UES_MN6.zip,MN6
+-,Kikinda,MN6,45.85,20.46,/SRB_Kikinda_MN6.zip,MN6
+-,Kragujevac,MN6,44.02,20.92,/SRB_Kragujevac_MN6.zip,MN6
+-,Nis_station,MN6,43.33,21.9,/SRB_Nis_station_MN6.zip,MN6
+-,Nis_userenteredlocation,MN6,43.337,21.854,/SRB_Nis_userenteredlocation_MN6.zip,MN6
+-,Novi_Sad,MN6,45.33,19.85,/SRB_Novi_Sad_MN6.zip,MN6
+-,Sabac,MN6,44.75,19.6833,/SRB_Sabac_MN6.zip,MN6
+-,Bardejov,MN6,49.29,21.2778,/SVK_Bardejov_MN6.zip,MN6
+-,Karlskrona,MN6,56.159,15.587,/SWE_Karlskrona_MN6.zip,MN6
+-,Mae_Sot-Tak,MN6,16.667,98.55,/THA_Mae_Sot-Tak_MN6.zip,MN6
+-,Phuket_AP,MN6,8.117,98.317,/THA_Phuket_AP_MN6.zip,MN6
+-,Phuket,MN6,7.883,98.4,/THA_Phuket_MN6.zip,MN6
+-,Adana-Incirlik_AFB,MN6,37,35.417,/TUR_Adana-Incirlik_AFB_MN6.zip,MN6
+-,Adana,MN6,36.983,35.3,/TUR_Adana_MN6.zip,MN6
+-,Antakya,MN6,36.23,36.12,/TUR_Antakya_MN6.zip,MN6
+-,Antalya,MN6,36.867,30.733,/TUR_Antalya_MN6.zip,MN6
+-,Aydin,MN6,37.85,27.85,/TUR_Aydin_MN6.zip,MN6
+-,Ayvalik-Balikesir,MN6,39.31,26.69,/TUR_Ayvalik-Balikesir_MN6.zip,MN6
+-,Bartin,MN6,41.634,32.336,/TUR_Bartin_MN6.zip,MN6
+-,Diyarbakir,MN6,37.883,40.183,/TUR_Diyarbakir_MN6.zip,MN6
+-,Erzurum,MN6,39.917,41.267,/TUR_Erzurum_MN6.zip,MN6
+-,Kocaeli,MN6,40.851,29.881,/TUR_Kocaeli_MN6.zip,MN6
+-,Manisa,MN6,38.6,27.48,/TUR_Manisa_MN6.zip,MN6
+-,Mardin,MN6,37.317,40.738,/TUR_Mardin_MN6.zip,MN6
+-,Mugla,MN6,37.2,28.35,/TUR_Mugla_MN6.zip,MN6
+-,Safranbolu-Karabuk,MN6,41.24,32.68,/TUR_Safranbolu-Karabuk_MN6.zip,MN6
+-,Sanliurfa,MN6,37.13,38.75,/TUR_Sanliurfa_MN6.zip,MN6
+-,Chiayi_County,MN6,23.48,120.354,/TWN_Chiayi_County_MN6.zip,MN6
+-,Hualien,MN6,23.928,121.592,/TWN_Hualien_MN6.zip,MN6
+-,Ming-Chuan,MN6,23.251,120.703,/TWN_Ming-Chuan_MN6.zip,MN6
+-,Nantou_Yuchih,MN6,23.85,120.9,/TWN_Nantou_Yuchih_MN6.zip,MN6
+-,Tainan,MN6,23,120.2,/TWN_Tainan_MN6.zip,MN6
+-,Salto,MN6,-31.38,-57.95,/URY_Salto_MN6.zip,MN6
+-,CA_Plantation,MN6,38.6,-123.3,/USA_CA_Plantation_MN6.zip,MN6
+-,CO_Durango-La_Plata,MN6,37.15,-107.75,/USA_CO_Durango-La_Plata_MN6.zip,MN6
+-,CO_Lake_George,MN6,38.97,-105.37,/USA_CO_Lake_George_MN6.zip,MN6
+-,HI_Kula_Sanatorium,MN6,20.69,-156.3764,/USA_HI_Kula_Sanatorium_MN6.zip,MN6
+-,HI_Volcanoes_National_Park,MN6,19.33,-155.4096,/USA_HI_Volcanoes_National_Park_MN6.zip,MN6
+-,ID_McCall_AP,MN6,44.88,-116.1,/USA_ID_McCall_AP_MN6.zip,MN6
+-,Ho_Chi_Minh_City,MN6,10.82,106.667,/VNM_Ho_Chi_Minh_City_MN6.zip,MN6
+-,Sanaa,MN6,15.35,44.207,/YEM_Sanaa_MN6.zip,MN6
