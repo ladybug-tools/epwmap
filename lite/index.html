@@ -52,6 +52,8 @@
 
                 if (host === "doe") {
                     http_link = "https://energyplus.net/weather-download" + http_link;
+                }else if(host === "MN6"){
+                    http_link = "https://www.ladybug.tools/epwmap/data/MeteonormEPW" + http_link;
                 }else{
                     http_link = "http://climate.onebuilding.org" + http_link;
                 }
