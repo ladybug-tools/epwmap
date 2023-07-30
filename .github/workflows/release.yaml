@@ -38,7 +38,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
-          personal_token: ${{ secrets.PER_TOKEN }}
+          personal_token: ${{ secrets.DEPS_UPDATING}}
           publish_dir: ./build
 
       - name: Semantic release
