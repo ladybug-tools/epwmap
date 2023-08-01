@@ -14,9 +14,8 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Checkout master branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
           ref: master
       - name: Initialize node.js
