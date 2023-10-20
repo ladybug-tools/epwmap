@@ -12,7 +12,7 @@
     "@types/react": "^18.2.30",
     "@types/react-dom": "^18.2.14",
     "buffer": "^6.0.3",
-    "pollination-react-io": "^1.117.1",
+    "pollination-react-io": "^1.117.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
